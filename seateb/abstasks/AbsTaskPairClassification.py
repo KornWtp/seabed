@@ -19,7 +19,7 @@ class AbsTaskPairClassification(AbsTask):
         if not self.data_loaded:
             self.load_data()
 
-        data_split = self.dataset[split][0]
+        data_split = self.dataset[split]
         
         logging.getLogger("sentence_transformers.evaluation.PairClassificationEvaluator").setLevel(logging.WARN)
         evaluator = PairClassificationEvaluator(
