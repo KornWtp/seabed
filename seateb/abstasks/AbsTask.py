@@ -28,10 +28,17 @@ class AbsTask(ABC):
             return
 
         # TODO: add split argument
-        self.dataset = datasets.load_dataset(
-            self.description["hf_hub_name"], 
-            revision=self.description.get("revision", None)
-        )
+        try:
+            self.dataset = datasets.load_dataset(
+                self.description["hf_hub_name"],
+                self.description["eval_langs"], 
+                revision=self.description.get("revision", None)
+            )
+        except:
+            self.dataset = datasets.load_dataset(
+                self.description["hf_hub_name"], 
+                revision=self.description.get("revision", None)
+            )
         self.data_loaded = True
 
     @abstractmethod
