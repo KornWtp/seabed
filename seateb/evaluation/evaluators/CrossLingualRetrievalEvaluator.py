@@ -53,8 +53,6 @@ class CrossLingualRetrievalEvaluator(Evaluator):
     def compute_metrics(self, model):
 
         with nullcontext() if self.truncate_dim is None else model.truncate_sentence_embeddings(self.truncate_dim):
-            self.sentences1 = self.sentences1[:1000]
-            self.sentences2 = self.sentences2[:1000]
             sentences = list(set(self.sentences1 + self.sentences2))
             logger.info(f"Encoding {len(sentences)} sentences...")
             embeddings = model.encode(sentences, batch_size=self.batch_size, convert_to_numpy=False)

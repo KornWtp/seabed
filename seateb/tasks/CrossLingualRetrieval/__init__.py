@@ -5,3 +5,16 @@ from .KhmerTED2020 import *
 from .VietnameseTED2020 import *
 from .TagalogTED2020 import *
 from .TamilTED2020 import *
+from .ThaiQED import *
+from .IndoQED import *
+from .MalayQED import *
+from .KhmerQED import *
+from .VietnameseQED import *
+from .TagalogQED import *
+from .TamilQED import *
+from .ThaiTatoeba import *
+from .IndoTatoeba import *
+from .KhmerTatoeba import *
+from .VietnameseTatoeba import *
+from .TagalogTatoeba import *
+from .TamilTatoeba import *

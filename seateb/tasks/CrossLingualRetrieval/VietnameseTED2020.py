@@ -1,11 +1,11 @@
 from ...abstasks.AbsTaskCrossLingualRetrieval import AbsTaskCrossLingualRetrieval
 
 
-class VitenameseTED2020(AbsTaskCrossLingualRetrieval):
+class VietnameseTED2020(AbsTaskCrossLingualRetrieval):
     @property
     def description(self):
         return {
-            "name": "VitenameseTED2020",
+            "name": "VietnameseTED2020",
             "hf_hub_name": "kornwtp/vi-ted2020",
             "description": "Parallel sentences in English and their corresponding sentences in Vitenamese.",
             "reference": "https://opus.nlpl.eu",
