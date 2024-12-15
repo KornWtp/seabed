@@ -1,10 +1,10 @@
-# SEA-Sentence-Embedding
+# Southeast Asian Text Embedding Benchmark
 
 ## Installation
 
 ```bash
-git clone https://github.com/KornWtp/SEA-Sentence-Embedding.git
-cd SEA-Sentence-Embedding
+git clone https://github.com/KornWtp/seateb.git
+cd seateb
 pip install -e .
 ```
 
