@@ -3,7 +3,9 @@
 ## Installation
 
 ```bash
-pip install seateb
+git clone https://github.com/KornWtp/SEA-Sentence-Embedding.git
+cd SEA-Sentence-Embedding
+pip install -e .
 ```
 
 ## Usage
