@@ -18,7 +18,7 @@ from sentence_transformers import SentenceTransformer
 model_name = "kornwtp/simcse-model-phayathaibert"
 
 model = SentenceTransformer(model_name)
-evaluation = SEATEB(tasks=["ThaiSTSBenchmark"]) # STS, PairClassification, CrossLingualRetrieval
+evaluation = SEATEB(task_types=["STS", "PairClassification"]) # STS, PairClassification, CrossLingualRetrieval
 results = evaluation.run(model, output_folder=f"results/{model_name}")
 
 
