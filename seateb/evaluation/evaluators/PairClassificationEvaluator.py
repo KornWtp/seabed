@@ -41,7 +41,7 @@ class PairClassificationEvaluator(Evaluator):
         self.sentences2 = sentences2
         self.labels = labels
         self.batch_size = batch_size
-        import pdb; pdb.set_trace()
+        
         assert len(self.sentences1) == len(self.sentences2)
         assert len(self.sentences1) == len(self.labels)
         for label in labels:
