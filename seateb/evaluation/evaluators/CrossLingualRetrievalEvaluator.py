@@ -90,9 +90,6 @@ class CrossLingualRetrievalEvaluator(Evaluator):
         acc_src2trg = correct_src2trg / len(cos_sims)
         acc_trg2src = correct_trg2src / len(cos_sims)
 
-        logger.info(f"Accuracy src2trg: {acc_src2trg * 100:.2f}")
-        logger.info(f"Accuracy trg2src: {acc_trg2src * 100:.2f}")
-
         metrics = {
             "src2trg_accuracy": acc_src2trg,
             "trg2src_accuracy": acc_trg2src,
