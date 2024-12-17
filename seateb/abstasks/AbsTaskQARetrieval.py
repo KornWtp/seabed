@@ -2,7 +2,7 @@ import logging
 from collections import defaultdict
 import pandas as pd
 
-from ..evaluation.evaluators import XQuADRetrievalEvaluator, MIRACLRetrievalEvaluator, TyDiQARetrievalEvaluator
+from ..evaluation.evaluators import QARetrievalEvaluator, MIRACLRetrievalEvaluator #, TyDiQARetrievalEvaluator, MLQARetrievalEvaluator
 from .AbsTask import AbsTask
 
 
@@ -25,7 +25,7 @@ class AbsTaskQARetrieval(AbsTask):
         if "xquad" in self.description["hf_hub_name"]:
             doc_context_id, doc_context, question_id, questions = self.process_xquad(data_split)
             
-            evaluator = XQuADRetrievalEvaluator(
+            evaluator = QARetrievalEvaluator(
                 question_id, questions, doc_context_id, doc_context, **kwargs
             )
             scores = evaluator.compute_metrics(model)
@@ -39,7 +39,14 @@ class AbsTaskQARetrieval(AbsTask):
         elif "tydiqa" in self.description["hf_hub_name"]:
             question_id, questions, doc_context_id, doc_context = self.process_tydiqa(data_split)
 
-            evaluator = TyDiQARetrievalEvaluator(
+            evaluator = QARetrievalEvaluator(
+                question_id, questions, doc_context_id, doc_context, **kwargs
+            )
+            scores = evaluator.compute_metrics(model)
+        elif "mlqa" in self.description["hf_hub_name"]:
+            question_id, questions, doc_context_id, doc_context = self.process_mlqa(data_split)
+
+            evaluator = QARetrievalEvaluator(
                 question_id, questions, doc_context_id, doc_context, **kwargs
             )
             scores = evaluator.compute_metrics(model)
@@ -100,6 +107,37 @@ class AbsTaskQARetrieval(AbsTask):
             
         df_question = pd.DataFrame(question_contextid_context, columns =["doc_id", "question"])
         df_document = pd.DataFrame(zip(list(all_doc.values()), list(all_doc.keys())), columns =["doc_id", "document"])
+
+        doc_context_id = df_document["doc_id"].to_list() 
+        doc_context = df_document["document"].to_list()
+        question_id = df_question["doc_id"].to_list()
+        questions = df_question["question"].to_list()
+
+        return question_id, questions, doc_context_id, doc_context
+
+    def process_mlqa(self, data):
+        document_id = 0
+        context_id = 0
+        titleid_title_context = []
+        question_contextid_context = []
+        titleid_title_allcontext = []
+        for item in data["data"][0]:
+            title = item['title']
+            context_all = ''
+            for context_question in item['paragraphs']:
+                context = context_question['context']
+                context = context.replace('\ufeff','')
+                context_all += context + '\n'
+                titleid_title_context.append([document_id, title, context_id, context])
+                for q_as in context_question['qas']:
+                    question = q_as['question']
+                    question_contextid_context.append([document_id, context_id, question])
+                context_id += 1
+            titleid_title_allcontext.append([document_id, title, context_all])
+            document_id += 1
+
+        df_document = pd.DataFrame(titleid_title_allcontext, columns =['doc_id','title','document'])
+        df_question = pd.DataFrame(question_contextid_context, columns =['doc_id','paragraph_id','question'])
 
         doc_context_id = df_document["doc_id"].to_list() 
         doc_context = df_document["document"].to_list()

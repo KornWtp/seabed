@@ -4,3 +4,4 @@ from .ThaiMIRACL import *
 from .IndoMIRACL import *
 from .ThaiTyDiQA import *
 from .IndoTyDiQA import *
+from .VietnameseMLQA import *
