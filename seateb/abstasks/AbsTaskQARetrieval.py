@@ -23,28 +23,28 @@ class AbsTaskQARetrieval(AbsTask):
 
         data_split = self.dataset[split]
         if "xquad" in self.description["hf_hub_name"]:
-            doc_context_id, doc_context, question_id, questions = self.process_xquad(data_split)
+            doc_context_id, doc_context, question_id, questions = self.xquad_preprocess(data_split)
             
             evaluator = QARetrievalEvaluator(
                 question_id, questions, doc_context_id, doc_context, **kwargs
             )
             scores = evaluator.compute_metrics(model)
         elif "miracl" in self.description["hf_hub_name"]:
-            all_text, all_answers, all_query = self.process_miracl(data_split)
+            all_text, all_answers, all_query = self.miracl_preprocess(data_split)
 
             evaluator = MIRACLRetrievalEvaluator(
                 all_text, all_answers, all_query, **kwargs
             )
             scores = evaluator.compute_metrics(model)
         elif "tydiqa" in self.description["hf_hub_name"]:
-            question_id, questions, doc_context_id, doc_context = self.process_tydiqa(data_split)
+            question_id, questions, doc_context_id, doc_context = self.tydiqa_preprocess(data_split)
 
             evaluator = QARetrievalEvaluator(
                 question_id, questions, doc_context_id, doc_context, **kwargs
             )
             scores = evaluator.compute_metrics(model)
         elif "mlqa" in self.description["hf_hub_name"]:
-            question_id, questions, doc_context_id, doc_context = self.process_mlqa(data_split)
+            question_id, questions, doc_context_id, doc_context = self.mlqa_preprocess(data_split)
 
             evaluator = QARetrievalEvaluator(
                 question_id, questions, doc_context_id, doc_context, **kwargs
@@ -55,7 +55,7 @@ class AbsTaskQARetrieval(AbsTask):
 
         return scores
 
-    def process_xquad(self, data):
+    def xquad_preprocess(self, data):
         all_doc = set(data["context"])
         all_doc = {c:i for i, c in enumerate(all_doc)}
 
@@ -75,7 +75,7 @@ class AbsTaskQARetrieval(AbsTask):
 
         return doc_context_id, doc_context, question_id, questions
 
-    def process_miracl(self, data):
+    def miracl_preprocess(self, data):
         all_query = []
         all_answers = []
         all_text = []
@@ -95,7 +95,7 @@ class AbsTaskQARetrieval(AbsTask):
 
         return all_text, all_answers, all_query
 
-    def process_tydiqa(self, data):
+    def tydiqa_preprocess(self, data):
         all_doc = set(data["passage_text"])
         all_doc = {c:i for i, c in enumerate(all_doc)}
 
@@ -115,7 +115,7 @@ class AbsTaskQARetrieval(AbsTask):
 
         return question_id, questions, doc_context_id, doc_context
 
-    def process_mlqa(self, data):
+    def mlqa_preprocess(self, data):
         document_id = 0
         context_id = 0
         titleid_title_context = []
