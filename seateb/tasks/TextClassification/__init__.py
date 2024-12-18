@@ -20,3 +20,5 @@ from .KhmerBookmebusReviews import *
 from .KhmerNewsClassification import *
 from .TamilIntentClassification import *
 from .TamilScenarioClassification import *
+from .TamilNewsClassification import *
+from .TamilmurasuNewsClassification import *
