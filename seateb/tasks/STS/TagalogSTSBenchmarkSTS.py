@@ -5,7 +5,7 @@ class TagalogSTSBenchmarkSTS(AbsTaskSTS):
     @property
     def description(self):
         return {
-            "name": "TagalogSTSBenchmarkSTS",
+            "name": "TagalogSTSBenchmark",
             "hf_hub_name": "kornwtp/fil-stsbenchmark-sts",
             "description": "Tagalog Semantic Textual Similarity Benchmark (STSbenchmark) dataset, translated from SentEval using the Google Translate API.",
             "reference": "http://ixa2.si.ehu.es/stswiki/index.php/STSbenchmark",
