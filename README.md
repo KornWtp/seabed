@@ -26,6 +26,17 @@ results = evaluation.run(model, output_folder=f"results/{model_name}")
 
 ````
 
+* Using CLI
+
+```bash
+seateb --available_tasks
+
+seateb -m sentence-transformers/paraphrase-multilingual-mpnet-base-v2 \
+       -t NewsPHNLI KhmerSTSBenchmarkSTS \
+       --output_folder seateb_output \
+       --verbosity 3
+```
+
 ### Using a custom model
 
 Models should implement the following interface, implementing an `encode` function taking as inputs a list of sentences, and returning a list of embeddings (embeddings can be `np.array`, `torch.tensor`, etc.).
