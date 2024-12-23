@@ -16,10 +16,10 @@ setup(
     license="Apache",
     author="SEATEB",
     author_email="wuttikornp.pro@gmail.com",
-    url="https://github.com/KornWtp/SEA-Sentence-Embedding",
+    url="https://github.com/KornWtp/seateb",
     project_urls={
         "Huggingface Organization": "https://huggingface.co/kornwtp",
-        "Source Code": "https://github.com/KornWtp/SEA-Sentence-Embedding",
+        "Source Code": "https://github.com/KornWtp/seateb",
     },
     packages=find_packages(),
     python_requires=">=3.8.0",
