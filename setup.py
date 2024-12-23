@@ -22,6 +22,11 @@ setup(
         "Source Code": "https://github.com/KornWtp/seateb",
     },
     packages=find_packages(),
+    entry_points={
+        "console_scripts": [
+            "seateb=seateb.cmd:main",
+        ]
+    },
     python_requires=">=3.8.0",
     install_requires=[
         "datasets>=2.2.0",
