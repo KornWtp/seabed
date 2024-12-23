@@ -17,7 +17,7 @@ from seateb import SEATEB
 from sentence_transformers import SentenceTransformer
 
 # Define the sentence-transformers model name
-model_name = "kornwtp/simcse-model-phayathaibert"
+model_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 
 model = SentenceTransformer(model_name)
 evaluation = SEATEB(task_types=["STS", "PairClassification"]) # STS, TextClassification, PairClassification, QARetrieval, CrossLingualRetrieval
