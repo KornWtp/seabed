@@ -10,7 +10,7 @@ from .Evaluator import Evaluator
 logger = logging.getLogger(__name__)
 
 
-class CrossLingualRetrievalEvaluator(Evaluator):
+class BitextMiningEvaluator(Evaluator):
     """
     Evaluate a model based on the similarity of the embeddings by calculating the accuracy of identifying similar and
     dissimilar sentences.

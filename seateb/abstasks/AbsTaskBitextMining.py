@@ -1,12 +1,12 @@
 import logging
 
-from ..evaluation.evaluators import CrossLingualRetrievalEvaluator
+from ..evaluation.evaluators import BitextMiningEvaluator
 from .AbsTask import AbsTask
 
 
-class AbsTaskCrossLingualRetrieval(AbsTask):
+class AbsTaskBitextMining(AbsTask):
     """
-    Abstract class for CrossLingualRetrievalTasks
+    Abstract class for BitextMiningTasks
     The similarity is computed between pairs, and the results determine if vec(source) 
     has the highest similarity to vec(target). The accuracy is calculated in both directions.
     """
@@ -20,7 +20,7 @@ class AbsTaskCrossLingualRetrieval(AbsTask):
         
         data_split = self.dataset[split]
         
-        evaluator = CrossLingualRetrievalEvaluator(
+        evaluator = BitextMiningEvaluator(
             data_split["source"], data_split["target"], **kwargs
         )
         scores = evaluator.compute_metrics(model)
