@@ -1,13 +1,13 @@
 from ...abstasks.AbsTaskTextClassification import AbsTaskTextClassification
 
 
-class MalayNewsClassification(AbsTaskTextClassification):
+class MalayNewsSentiment(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "MalayNewsClassification",
+            "name": "MalayNewsSentiment",
             "hf_hub_name": "kornwtp/ms-news-sentiment",
-            "description": "Malay news classification",
+            "description": "Malay news sentiment classification",
             "reference": "https://github.com/mesolitica/malaysian-dataset",
             "category": "s2s",
             "type": "TextClassification",

@@ -22,21 +22,14 @@ class AbsTaskTextClassification(AbsTask):
         data_split = self.dataset
 
         if "generated-reviews-enth" in self.description["hf_hub_name"]:
-            X_train, y_train, X_test, y_test = self.generated_reviews_enth_preprocess(data_split)
-        elif "ms-bahasa-twitter-sentiment" in self.description["hf_hub_name"]:
-            X_train, y_train, X_test, y_test = self.generated_preprocess(data_split)
-        elif "ms-news-sentiment" in self.description["hf_hub_name"]:
-            X_train, y_train, X_test, y_test = self.generated_preprocess(data_split)
-        elif "km-bookmebus-reviews" in self.description["hf_hub_name"]:
-            X_train, y_train, X_test, y_test = self.generated_preprocess(data_split)
-        elif "km-news-article-classification" in self.description["hf_hub_name"]:
-            X_train, y_train, X_test, y_test = self.generated_preprocess(data_split)  
-        elif "tl-news-classification" in self.description["hf_hub_name"]:
-            X_train, y_train, X_test, y_test = self.tamil_news_preprocess(data_split)    
+            X_train, y_train, X_test, y_test = self.generated_reviews_enth_preprocess(data_split)   
         elif "tamilmurasu-news-classification" in self.description["hf_hub_name"]:
             X_train, y_train, X_test, y_test = self.tamilmurasu_news_preprocess(data_split)       
         else:
-            X_train, y_train, X_test, y_test = self.preprocess(data_split)
+            if "test" not in data_split.keys() and "validation" not in data_split.keys():
+                X_train, y_train, X_test, y_test = self.generated_preprocess(data_split) 
+            else:
+                X_train, y_train, X_test, y_test = self.preprocess(data_split)
 
         evaluator = TextClassificationEvaluator(
             X_train, y_train, X_test, y_test, **kwargs
@@ -49,8 +42,12 @@ class AbsTaskTextClassification(AbsTask):
         X_train = data['train']['texts']
         y_train = data['train']['labels']
         
-        X_test = data['test']['texts']
-        y_test = data['test']['labels']
+        try:
+            X_test = data['test']['texts']
+            y_test = data['test']['labels']
+        except:
+            X_test = data['validation']['texts']
+            y_test = data['validation']['labels']
 
         return X_train, y_train, X_test, y_test
 
@@ -67,15 +64,6 @@ class AbsTaskTextClassification(AbsTask):
      
         X_test = [text['th'] for text in data['test']['texts']]
         y_test = data['test']['labels']
-
-        return X_train, y_train, X_test, y_test
-
-    def tamil_news_preprocess(self, data):
-        X_train = data['train']['texts']
-        y_train = data['train']['labels']
-        
-        X_test = data['validation']['texts']
-        y_test = data['validation']['labels']
 
         return X_train, y_train, X_test, y_test
 
