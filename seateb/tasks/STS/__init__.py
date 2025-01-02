@@ -5,3 +5,4 @@ from .KhmerSTSBenchmarkSTS import *
 from .VietnameseSTSBenchmarkSTS import *
 from .TagalogSTSBenchmarkSTS import *
 from .TamilSTSBenchmarkSTS import *
+from .IndoSemRel2024STS import *
