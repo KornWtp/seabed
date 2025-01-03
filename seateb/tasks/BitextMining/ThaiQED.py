@@ -1,7 +1,7 @@
-from ...abstasks.AbsTaskCrossLingualRetrieval import AbsTaskCrossLingualRetrieval
+from ...abstasks.AbsTaskBitextMining import AbsTaskBitextMining
 
 
-class ThaiQED(AbsTaskCrossLingualRetrieval):
+class ThaiQED(AbsTaskBitextMining):
     @property
     def description(self):
         return {
@@ -10,7 +10,7 @@ class ThaiQED(AbsTaskCrossLingualRetrieval):
             "description": "Parallel sentences in English and their corresponding sentences in Thai.",
             "reference": "https://opus.nlpl.eu",
             "category": "s2s",
-            "type": "CrossLingualRetrieval",
+            "type": "BitextMining",
             "eval_splits": ["train"],
             "eval_langs": ["th"],
             "main_score": "mean_accuracy",
