@@ -4,3 +4,4 @@ from .AbsTaskTextClassification import *
 from .AbsTaskPairClassification import *
 from .AbsTaskQARetrieval import *
 from .AbsTaskBitextMining import *
+from .AbsTaskMultiLabelTextClassification import *
