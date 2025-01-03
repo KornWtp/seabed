@@ -20,7 +20,7 @@ from sentence_transformers import SentenceTransformer
 model_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 
 model = SentenceTransformer(model_name)
-evaluation = SEATEB(task_types=["STS", "PairClassification"]) # STS, TextClassification, PairClassification, QARetrieval, BitextMining
+evaluation = SEATEB(task_types=["STS", "PairClassification"]) # STS, TextClassification, PairClassification, QARetrieval, BitextMining, MultiLabelTextClassification
 results = evaluation.run(model, output_folder=f"results/{model_name}", batch_size=32)
 
 
