@@ -22,14 +22,14 @@ class AbsTaskQARetrieval(AbsTask):
         
 
         data_split = self.dataset[split]
-        if "xquad" in self.description["hf_hub_name"]:
+        if "xquad" in self.description["hf_hub_name"] or "indicqa" in self.description["hf_hub_name"] or "ViQuAD" in self.description["hf_hub_name"]:
             doc_context_id, doc_context, question_id, questions = self.xquad_preprocess(data_split)
             
             evaluator = QARetrievalEvaluator(
                 question_id, questions, doc_context_id, doc_context, **kwargs
             )
             scores = evaluator.compute_metrics(model)
-        elif "miracl" in self.description["hf_hub_name"]:
+        elif "miracl" in self.description["hf_hub_name"] or "mldr" in self.description["hf_hub_name"]:
             all_text, all_answers, all_query = self.miracl_preprocess(data_split)
 
             evaluator = MIRACLRetrievalEvaluator(
@@ -55,6 +55,26 @@ class AbsTaskQARetrieval(AbsTask):
 
         return scores
 
+    def preprocess(self, data):
+        all_doc = set(data["context"])
+        all_doc = {c:i for i, c in enumerate(all_doc)}
+
+        question_contextid_context = []
+        for item in data:
+            question = item["question"]
+            doc = item["context"]
+            question_contextid_context.append([all_doc[doc], question])
+            
+        df_question = pd.DataFrame(question_contextid_context, columns =["doc_id", "question"])
+        df_document = pd.DataFrame(zip(list(all_doc.values()), list(all_doc.keys())), columns =["doc_id", "document"])
+        
+        doc_context_id = df_document["doc_id"].to_list() 
+        doc_context = df_document["document"].to_list()
+        question_id = df_question["doc_id"].to_list()
+        questions = df_question["question"].to_list()
+
+        return question_id, questions, doc_context_id, doc_context
+    
     def xquad_preprocess(self, data):
         all_doc = set(data["context"])
         all_doc = {c:i for i, c in enumerate(all_doc)}
@@ -92,7 +112,7 @@ class AbsTaskQARetrieval(AbsTask):
             all_text += [x["text"] for x in positive_passages]
             all_text += [x["text"] for x in negative_passages]
         all_text = list(set(all_text))  
-
+        
         return all_text, all_answers, all_query
 
     def tydiqa_preprocess(self, data):
@@ -145,3 +165,5 @@ class AbsTaskQARetrieval(AbsTask):
         questions = df_question["question"].to_list()
 
         return question_id, questions, doc_context_id, doc_context
+
+
