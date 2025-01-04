@@ -20,8 +20,8 @@ from sentence_transformers import SentenceTransformer
 model_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 
 model = SentenceTransformer(model_name)
-evaluation = SEATEB(task_types=["STS", "PairClassification"]) # STS, TextClassification, PairClassification, QARetrieval, CrossLingualRetrieval
-results = evaluation.run(model, output_folder=f"results/{model_name}")
+evaluation = SEATEB(task_types=["STS", "PairClassification"]) # STS, TextClassification, PairClassification, QARetrieval, BitextMining, MultiLabelTextClassification
+results = evaluation.run(model, output_folder=f"results/{model_name}", batch_size=32)
 
 
 ````
@@ -34,6 +34,7 @@ seateb --available_tasks
 seateb -m sentence-transformers/paraphrase-multilingual-mpnet-base-v2 \
        -t NewsPHNLI KhmerSTSBenchmarkSTS \
        --output_folder seateb_output \
+       --batch_size 32 \
        --verbosity 3
 ```
 

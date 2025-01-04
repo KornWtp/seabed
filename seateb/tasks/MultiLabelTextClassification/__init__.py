@@ -1,0 +1,7 @@
+from .Prachathai67k import *
+from .TrueVoiceIntent import *
+from .Dengue import *
+from .IndoCASA import *
+from .IndoHoASA import *
+from .VLSP2018SARestaurant import *
+from .VLSP2018SAHotel import *

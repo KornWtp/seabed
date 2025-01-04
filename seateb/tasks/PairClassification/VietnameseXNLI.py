@@ -7,7 +7,7 @@ class VietnameseXNLI(AbsTaskPairClassification):
         return {
             "name": "VietnameseXNLI",
             "hf_hub_name": "kornwtp/vi-xnli",
-            "description": "Vietnamese sentence pairs classification, translated from the Cross-lingual Natural Language Inference (XNLI) corpus using the Google Translate API.",
+            "description": "Sentence pairs classification from the Cross-lingual Natural Language Inference (XNLI) corpus.",
             "reference": "https://github.com/facebookresearch/XNLI",
             "category": "s2s",
             "type": "PairClassification",

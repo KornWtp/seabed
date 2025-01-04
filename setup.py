@@ -8,7 +8,7 @@ with open("README.md", mode="r", encoding="utf-8") as readme_file:
 
 setup(
     name="seateb",
-    version="0.0.1",
+    version="0.0.2",
     description="Southeast Asian Text Embedding Benchmark",
     long_description=readme,
     long_description_content_type="text/markdown",

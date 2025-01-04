@@ -39,7 +39,7 @@ class QARetrievalEvaluator(Evaluator):
     def compute_metrics(self, model):
         logger.info(f"Encoding {len(self.doc_context)} documents...")
         doc_context_encoded = model.encode(self.doc_context, convert_to_numpy=True, normalize_embeddings=True)
-        logger.info(f"Encoding {self.questions} questions...")
+        logger.info(f"Encoding {len(self.questions)} questions...")
         question_encoded = model.encode(self.questions, convert_to_numpy=True, normalize_embeddings=True)
 
         top_1 = 0 
@@ -111,7 +111,7 @@ class MIRACLRetrievalEvaluator(Evaluator):
     def compute_metrics(self, model):
         logger.info(f"Encoding {len(self.doc_context)} documents...")
         doc_context_encoded = model.encode(self.doc_context, convert_to_numpy=True, normalize_embeddings=True)
-        logger.info(f"Encoding {self.questions} questions...")
+        logger.info(f"Encoding {len(self.questions)} questions...")
         question_encoded = model.encode(self.questions, convert_to_numpy=True, normalize_embeddings=True)
 
 

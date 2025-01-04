@@ -45,7 +45,7 @@ class PairClassificationEvaluator(Evaluator):
         assert len(self.sentences1) == len(self.sentences2)
         assert len(self.sentences1) == len(self.labels)
         for label in labels:
-            assert label == 0 or label == 1
+            assert label == 0 or label == 1 or label == 2
 
     def __call__(self, model):
         scores = self.compute_metrics(model)
@@ -56,6 +56,15 @@ class PairClassificationEvaluator(Evaluator):
         return scores
 
     def compute_metrics(self, model):
+        # Filter to remove neutral pairs and relabel contradiction labels as 0 and entailment labels as 1.
+        if 2 in self.labels:     
+            filtered_data = [
+                (s1, s2, 1 if lbl == 0 else 0) 
+                for s1, s2, lbl in zip(self.sentences1, self.sentences2, self.labels) 
+                if lbl != 1
+            ]
+            self.sentences1, self.sentences2, self.labels = zip(*filtered_data)
+
         sentences = list(set(self.sentences1 + self.sentences2))
         logger.info(f"Encoding {len(sentences)} sentences...")
         embeddings = np.asarray(model.encode(sentences, batch_size=self.batch_size))

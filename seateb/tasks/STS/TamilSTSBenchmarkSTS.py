@@ -6,7 +6,7 @@ class TamilSTSBenchmarkSTS(AbsTaskSTS):
     def description(self):
         return {
             "name": "TamilSTSBenchmark",
-            "hf_hub_name": "kornwtp/tl-stsbenchmark-sts",
+            "hf_hub_name": "kornwtp/ta-stsbenchmark-sts",
             "description": "Tamil Semantic Textual Similarity Benchmark (STSbenchmark) dataset, translated from SentEval using the Google Translate API.",
             "reference": "http://ixa2.si.ehu.es/stswiki/index.php/STSbenchmark",
             "type": "STS",

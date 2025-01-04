@@ -5,3 +5,6 @@ from .IndoMIRACL import *
 from .ThaiTyDiQA import *
 from .IndoTyDiQA import *
 from .VietnameseMLQA import *
+from .ViQuAD2_0 import *
+from .TamilIndicQA import *
+from .ThaiMLDR import *

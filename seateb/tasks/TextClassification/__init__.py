@@ -13,7 +13,7 @@ from .TagalogScenarioClassification import *
 from .HatespeechFilipinoClassification import *
 from .MalayIntentClassification import *
 from .MalayScenarioClassification import *
-from .MalayNewsClassification import *
+from .MalayNewsSentiment import *
 from .KhmerIntentClassification import *
 from .KhmerScenarioClassification import *
 from .KhmerBookmebusReviews import *
@@ -22,3 +22,14 @@ from .TamilIntentClassification import *
 from .TamilScenarioClassification import *
 from .TamilNewsClassification import *
 from .TamilmurasuNewsClassification import *
+from .ThaiIntentClassification import *
+from .ThaiScenarioClassification import *
+from .ThaiSentimentClassification import *
+from .IndoSentimentClassification import *
+from .VietnameseSentimentClassification import *
+from .IndoClickbaitClassification import *
+from .TagalogShopeeReviewsClassification import *
+from .VietnameseStudentFeedbackClassification import *
+from .TagalogProfanityClassification import *
+from .TagalogFakenewsClassification import *
+
