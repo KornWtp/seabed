@@ -5,7 +5,7 @@ class TagalogFakenewsClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "TagalogFakenewsClassification",
+            "name": "TagalogFakenewsTextClassification",
             "hf_hub_name": "kornwtp/tl-fake-news-classification",
             "description": "Fake News Detection Corpora in Filipino.",
             "reference": "https://huggingface.co/datasets/jcblaise/fake_news_filipino",

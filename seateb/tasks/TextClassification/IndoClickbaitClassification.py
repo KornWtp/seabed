@@ -5,7 +5,7 @@ class IndoClickbaitClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "IndoClickbaitClassification",
+            "name": "IndoClickbaitTextClassification",
             "hf_hub_name": "kornwtp/id-clickbait",
             "description": "Indonesian news headlines for text classification",
             "reference": "https://data.mendeley.com/datasets/k42j7x2kpn/1",

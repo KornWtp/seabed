@@ -5,7 +5,7 @@ class HatespeechFilipinoClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "HatespeechFilipinoClassification",
+            "name": "HatespeechFilipinoTextClassification",
             "hf_hub_name": "kornwtp/hatespeech-filipino",
             "description": "Text Classification Dataset in Filipino",
             "reference": "https://huggingface.co/datasets/jcblaise/hatespeech_filipino",

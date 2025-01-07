@@ -5,7 +5,7 @@ class WisesightSentiment(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "WisesightSentiment",
+            "name": "WisesightSentimentTextClassification",
             "hf_hub_name": "kornwtp/wisesight-sentiment",
             "description": "Social media messages in Thai language with sentiment label (positive, neutral, negative, question)",
             "reference": "https://huggingface.co/datasets/pythainlp/wisesight_sentiment",

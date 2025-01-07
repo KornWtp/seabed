@@ -5,7 +5,7 @@ class IndoSentimentClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "IndoSentimentClassification",
+            "name": "IndoSentimentTextClassification",
             "hf_hub_name": "kornwtp/id-sentiment-classification",
             "description": "Sentiment classification from multilingual sentiment classification datasets.",
             "reference": "https://huggingface.co/datasets/mteb/multilingual-sentiment-classification",

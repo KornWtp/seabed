@@ -5,7 +5,7 @@ class TamilIntentClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "TamilIntentClassification",
+            "name": "TamilIntentTextClassification",
             "hf_hub_name": "kornwtp/tl-intent-classification",
             "description": "Massive intent classification from MTEB.",
             "reference": "https://huggingface.co/datasets/mteb/amazon_massive_intent",

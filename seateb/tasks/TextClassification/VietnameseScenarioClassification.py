@@ -5,7 +5,7 @@ class VietnameseScenarioClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "VietnameseScenarioClassification",
+            "name": "VietnameseScenarioTextClassification",
             "hf_hub_name": "kornwtp/vi-scenario-classification",
             "description": "Massive scenario classification from MTEB.",
             "reference": "https://huggingface.co/datasets/mteb/amazon_massive_scenario",

@@ -5,7 +5,7 @@ class VietnameseStudentFeedbackClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "VietnameseStudentFeedbackClassification",
+            "name": "VietnameseStudentFeedbackTextClassification",
             "hf_hub_name": "kornwtp/vi-students-feedback",
             "description": "Text classification from Vietnamese Students’ Feedback Corpus.",
             "reference": "https://huggingface.co/datasets/uitnlp/vietnamese_students_feedback",

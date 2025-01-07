@@ -5,7 +5,7 @@ class MalayNewsSentiment(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "MalayNewsSentiment",
+            "name": "MalayNewsSentimentTextClassification",
             "hf_hub_name": "kornwtp/ms-news-sentiment",
             "description": "Malay news sentiment classification",
             "reference": "https://github.com/mesolitica/malaysian-dataset",

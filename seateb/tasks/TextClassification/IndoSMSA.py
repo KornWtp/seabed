@@ -5,7 +5,7 @@ class IndoSMSA(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "IndoSMSA",
+            "name": "IndoSMSATextClassification",
             "hf_hub_name": "kornwtp/indonlu-smsa",
             "description": "A sentence-level sentiment analysis dataset consisting of comments and reviews in Indonesian, collected from multiple online platforms.",
             "reference": "https://huggingface.co/datasets/indonlp/indonlu",
