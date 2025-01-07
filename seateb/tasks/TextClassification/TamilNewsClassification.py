@@ -8,7 +8,7 @@ class TamilNewsClassification(AbsTaskTextClassification):
             "name": "TamilNewsTextClassification",
             "hf_hub_name": "kornwtp/ta-news-classification",
             "description": "News articles classification from Tamil news websites.",
-            "reference": "https://huggingface.co/datasets/mteb/amazon_massive_intent",
+            "reference": "https://www.kaggle.com/datasets/disisbig/bengali-news-dataset",
             "category": "s2s",
             "type": "TextClassification",
             "eval_splits": ["test"],
