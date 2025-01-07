@@ -5,7 +5,7 @@ class IndoSemRel2024STS(AbsTaskSTS):
     @property
     def description(self):
         return {
-            "name": "IndoSemRel2024",
+            "name": "IndoSemRel2024STS",
             "hf_hub_name": "kornwtp/id-SemRel2024",
             "description": "Indonesian Semantic Textual Relatedness (STR) dataset.",
             "reference": "https://huggingface.co/datasets/SemRel/SemRel2024",
