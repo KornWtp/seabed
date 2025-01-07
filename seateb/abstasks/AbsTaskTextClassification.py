@@ -15,7 +15,7 @@ class AbsTaskTextClassification(AbsTask):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def evaluate(self, model, split="test", **kwargs):
+    def evaluate(self, model, prompts, split="test", **kwargs):
         if not self.data_loaded:
             self.load_data()
         
@@ -31,6 +31,10 @@ class AbsTaskTextClassification(AbsTask):
             else:
                 X_train, y_train, X_test, y_test = self.preprocess(data_split)
 
+        if prompts is not None:
+            X_train = prompts(self.description['type'], self.description['name'], X_train) 
+            X_test = prompts(self.description['type'], self.description['name'], X_test)
+        
         evaluator = TextClassificationEvaluator(
             X_train, y_train, X_test, y_test, **kwargs
         )

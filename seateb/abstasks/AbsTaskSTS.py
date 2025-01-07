@@ -27,7 +27,7 @@ class AbsTaskSTS(AbsTask):
     def max_score(self):
         return self.description["max_score"]
 
-    def evaluate(self, model, split, **kwargs):
+    def evaluate(self, model, prompts, split, **kwargs):
         if not self.data_loaded:
             self.load_data()
 
@@ -44,6 +44,10 @@ class AbsTaskSTS(AbsTask):
                 f"\nTask: {self.description['name']}, split: {split}. Running..."
             )
             data_split = self.dataset[split]
+            
+            if prompts is not None:
+                data_split = prompts(self.description['type'], self.description['name'], data_split)
+            
             scores = self._evaluate_split(model, data_split, **kwargs)
 
         return scores
