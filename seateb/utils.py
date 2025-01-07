@@ -53,7 +53,7 @@ def get_instruction(task_type, task_name):
             "MalayScenarioTextClassification": "Given a user utterance as query, find the user scenarios",
             "KhmerScenarioTextClassification": "Given a user utterance as query, find the user scenarios",
             "TamilScenarioTextClassification": "Given a user utterance as query, find the user scenarios",
-            "WongnaiReviewsTextClassification": "Classify the given restaurant review into its appropriate rating category"
+            "WongnaiReviewsTextClassification": "Classify the given restaurant review into its appropriate rating category",
             "WisesightSentimentTextClassification": "Classify the sentiment of a given media messages as either positive, negative, or neutral",
             "GeneratedReviewsENTHTextClassification": "Classify the sentiment of a given product reviews as either accepted or rejected",
             "ThaiSentimentTextClassification": "Classify the sentiment of a given text as either positive or negative",
