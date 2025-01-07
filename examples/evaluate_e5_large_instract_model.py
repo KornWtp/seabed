@@ -63,7 +63,7 @@ def get_prompts(task_type, task_name, data_split):
         updated_dataset = data_split
     else:
         raise NotImplementedError
-    import pdb; pdb.set_trace()
+    
     return updated_dataset
 
 def main():
