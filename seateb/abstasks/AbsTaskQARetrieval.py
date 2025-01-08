@@ -16,7 +16,7 @@ class AbsTaskQARetrieval(AbsTask):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def evaluate(self, model, split="test", **kwargs):
+    def evaluate(self, model, prompts, split="test", **kwargs):
         if not self.data_loaded:
             self.load_data()
         
@@ -25,12 +25,18 @@ class AbsTaskQARetrieval(AbsTask):
         if "xquad" in self.description["hf_hub_name"] or "indicqa" in self.description["hf_hub_name"] or "ViQuAD" in self.description["hf_hub_name"]:
             doc_context_id, doc_context, question_id, questions = self.xquad_preprocess(data_split)
             
+            if prompts is not None:
+                questions, doc_context = prompts(self.description['type'], self.description['name'], [questions, doc_context])
+
             evaluator = QARetrievalEvaluator(
                 question_id, questions, doc_context_id, doc_context, **kwargs
             )
             scores = evaluator.compute_metrics(model)
         elif "miracl" in self.description["hf_hub_name"] or "mldr" in self.description["hf_hub_name"]:
             all_text, all_answers, all_query = self.miracl_preprocess(data_split)
+
+            if prompts is not None:
+                all_query, all_text = prompts(self.description['type'], self.description['name'], [all_query, all_text])
 
             evaluator = MIRACLRetrievalEvaluator(
                 all_text, all_answers, all_query, **kwargs
@@ -39,12 +45,18 @@ class AbsTaskQARetrieval(AbsTask):
         elif "tydiqa" in self.description["hf_hub_name"]:
             question_id, questions, doc_context_id, doc_context = self.tydiqa_preprocess(data_split)
 
+            if prompts is not None:
+                questions, doc_context = prompts(self.description['type'], self.description['name'], [questions, doc_context])
+
             evaluator = QARetrievalEvaluator(
                 question_id, questions, doc_context_id, doc_context, **kwargs
             )
             scores = evaluator.compute_metrics(model)
         elif "mlqa" in self.description["hf_hub_name"]:
             question_id, questions, doc_context_id, doc_context = self.mlqa_preprocess(data_split)
+
+            if prompts is not None:
+                questions, doc_context = prompts(self.description['type'], self.description['name'], [questions, doc_context]) 
 
             evaluator = QARetrievalEvaluator(
                 question_id, questions, doc_context_id, doc_context, **kwargs

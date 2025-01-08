@@ -5,7 +5,7 @@ class ThaiSentimentClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "ThaiSentimentClassification",
+            "name": "ThaiSentimentTextClassification",
             "hf_hub_name": "kornwtp/th-sentiment-classification",
             "description": "Sentiment classification from multilingual sentiment classification datasets.",
             "reference": "https://huggingface.co/datasets/mteb/multilingual-sentiment-classification",

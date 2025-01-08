@@ -5,7 +5,7 @@ class IndoScenarioClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "IndoScenarioClassification",
+            "name": "IndoScenarioTextClassification",
             "hf_hub_name": "kornwtp/id-scenario-classification",
             "description": "Massive scenario classification from MTEB.",
             "reference": "https://huggingface.co/datasets/mteb/amazon_massive_scenario",

@@ -14,11 +14,14 @@ class AbsTaskBitextMining(AbsTask):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def evaluate(self, model, split="test", **kwargs):
+    def evaluate(self, model, prompts, split="test", **kwargs):
         if not self.data_loaded:
             self.load_data()
         
         data_split = self.dataset[split]
+
+        if prompts is not None:
+            data_split = prompts(self.description['type'], self.description['name'], data_split)
         
         evaluator = BitextMiningEvaluator(
             data_split["source"], data_split["target"], **kwargs

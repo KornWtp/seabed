@@ -5,7 +5,7 @@ class VLSP2018SARestaurant(AbsTaskMultiLabelTextClassification):
     @property
     def description(self):
         return {
-            "name": "VLSP2018SARestaurant",
+            "name": "VLSP2018SARestaurantMultiLabelTextClassification",
             "hf_hub_name": "kornwtp/VLSP2018-SA-Restaurant",
             "description": "Multilabel text sentiment analisis from Vietnamese restaurant reviews dataset..",
             "reference": "https://github.com/vndee/awsome-vietnamese-nlp",

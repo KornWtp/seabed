@@ -5,7 +5,7 @@ class IndoEMOT(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "IndoEMOT",
+            "name": "IndoEMOTTextClassification",
             "hf_hub_name": "kornwtp/indonlu-emot",
             "description": "An emotion classification dataset collected from the social media platform Twitter.",
             "reference": "https://huggingface.co/datasets/indonlp/indonlu",

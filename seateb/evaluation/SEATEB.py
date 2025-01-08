@@ -175,7 +175,7 @@ class SEATEB:
             task.load_data()
 
 
-    def run(self, model, verbosity=1, output_folder="results/result", eval_splits=None, overwrite_results=False, **kwargs):
+    def run(self, model, prompts=None, verbosity=1, output_folder="results/result", eval_splits=None, overwrite_results=False, **kwargs):
         """
         Run the evaluation pipeline on the selected tasks.
 
@@ -232,7 +232,7 @@ class SEATEB:
                 }
                 for split in task_eval_splits:
                     tick = time()
-                    results = task.evaluate(model, split, **kwargs)
+                    results = task.evaluate(model, prompts, split, **kwargs)
                     tock = time()
                     logger.info(f"Evaluation for {task.description['name']} on {split} took {tock - tick:.2f} seconds")
                     results["evaluation_time"] = round(tock - tick, 2)

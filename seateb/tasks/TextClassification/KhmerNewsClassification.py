@@ -5,7 +5,7 @@ class KhmerNewsClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "KhmerNewsClassification",
+            "name": "KhmerNewsTextClassification",
             "hf_hub_name": "kornwtp/km-news-article-classification",
             "description": "Khmer news article on traffic accident",
             "reference": "https://github.com/phylypo/khmer-text-data",

@@ -5,7 +5,7 @@ class VLSP2016Sentiment(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "VLSP2016Sentiment",
+            "name": "VLSP2016SentimentTextClassification",
             "hf_hub_name": "kornwtp/vlsp2016",
             "description": "Sentiment analysis of personal opinions",
             "reference": "https://vlsp.org.vn/vlsp2016/eval/sa",

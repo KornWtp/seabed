@@ -5,7 +5,7 @@ class TamilScenarioClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "TamilScenarioClassification",
+            "name": "TamilScenarioTextClassification",
             "hf_hub_name": "kornwtp/tl-scenario-classification",
             "description": "Massive scenario classification from MTEB.",
             "reference": "https://huggingface.co/datasets/mteb/amazon_massive_scenario",

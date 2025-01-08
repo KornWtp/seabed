@@ -5,7 +5,7 @@ class KhmerBookmebusReviews(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "KhmerBookmebusReviews",
+            "name": "KhmerBookmebusReviewsTextClassification",
             "hf_hub_name": "kornwtp/km-bookmebus-reviews",
             "description": "Bookmebus reviews classification for Khmer",
             "reference": "https://github.com/seanghay/awesome-khmer-language",

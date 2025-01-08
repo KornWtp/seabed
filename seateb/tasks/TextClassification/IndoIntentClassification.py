@@ -5,7 +5,7 @@ class IndoIntentClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "IndoIntentClassification",
+            "name": "IndoIntentTextClassification",
             "hf_hub_name": "kornwtp/id-intent-classification",
             "description": "Massive intent classification from MTEB.",
             "reference": "https://huggingface.co/datasets/mteb/amazon_massive_intent",

@@ -5,7 +5,7 @@ class KhmerIntentClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "KhmerIntentClassification",
+            "name": "KhmerIntentTextClassification",
             "hf_hub_name": "kornwtp/km-intent-classification",
             "description": "Massive intent classification from MTEB.",
             "reference": "https://huggingface.co/datasets/mteb/amazon_massive_intent",

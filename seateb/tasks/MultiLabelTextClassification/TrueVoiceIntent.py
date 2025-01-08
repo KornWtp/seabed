@@ -5,7 +5,7 @@ class TrueVoiceIntent(AbsTaskMultiLabelTextClassification):
     @property
     def description(self):
         return {
-            "name": "TrueVoiceIntent",
+            "name": "TrueVoiceIntentMultiLabelTextClassification",
             "hf_hub_name": "kornwtp/truevoice-intent",
             "description": "Thai multilabel text classification from TrueVoice.",
             "reference": "https://github.com/PyThaiNLP/truevoice-intent",

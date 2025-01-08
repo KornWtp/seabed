@@ -5,7 +5,7 @@ class MalayScenarioClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "MalayScenarioClassification",
+            "name": "MalayScenarioTextClassification",
             "hf_hub_name": "kornwtp/ms-scenario-classification",
             "description": "Massive scenario classification from MTEB.",
             "reference": "https://huggingface.co/datasets/mteb/amazon_massive_scenario",

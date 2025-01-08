@@ -16,14 +16,14 @@ class AbsTaskMultiLabelTextClassification(AbsTask):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-    def evaluate(self, model, split="test", **kwargs):
+    def evaluate(self, model, prompts, split="test", **kwargs):
         if not self.data_loaded:
             self.load_data()
         
         data_split = self.dataset
 
         if "prachathai-67k" in self.description["hf_hub_name"]:
-            X_train, y_train, X_test, y_test = self.generated_prachathai67k_preprocess(data_split)   
+            X_train, y_train, X_test, y_test = self.generated_prachathai67k_preprocess(data_split) 
         elif "VLSP2018-SA" in self.description["hf_hub_name"]:
             X_train, y_train, X_test, y_test = self.vlsp2018sa_preprocess(data_split)       
         else:
@@ -32,6 +32,10 @@ class AbsTaskMultiLabelTextClassification(AbsTask):
             else:
                 X_train, y_train, X_test, y_test = self.preprocess(data_split)
 
+        if prompts is not None:
+            X_train = prompts(self.description['type'], self.description['name'], X_train) 
+            X_test = prompts(self.description['type'], self.description['name'], X_test)  
+        
         evaluator = MultiLabelTextClassificationEvaluator(
             X_train, y_train, X_test, y_test, **kwargs
         )

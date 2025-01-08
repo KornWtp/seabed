@@ -47,12 +47,14 @@ class AbsTask(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def evaluate(self, model, split="test"):
+    def evaluate(self, model, prompts=None, split="test"):
         """
         Evaluates a Sentence Embedding Model on the task.
         Returns a dict (that can be serialized to json).
         :param model: Sentence embedding method. Implements a encode(sentences) method, that encodes sentences
         and returns a numpy matrix with the sentence embeddings
+        :param prompt (optional): The prompt to use for encoding. For example, if the prompt is "query: ", then the
+        sentence "What is the capital of France?" will be encoded as "query: What is the capital of France?"
         :param split: Which datasplit to be used.
         """
         raise NotImplementedError

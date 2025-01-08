@@ -5,7 +5,7 @@ class KhmerSTSBenchmarkSTS(AbsTaskSTS):
     @property
     def description(self):
         return {
-            "name": "KhmerSTSBenchmark",
+            "name": "KhmerSTSBenchmarkSTS",
             "hf_hub_name": "kornwtp/km-stsbenchmark-sts",
             "description": "Khmer Semantic Textual Similarity Benchmark (STSbenchmark) dataset, translated from SentEval using the Google Translate API.",
             "reference": "http://ixa2.si.ehu.es/stswiki/index.php/STSbenchmark",

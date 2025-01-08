@@ -5,7 +5,7 @@ class IndoHoASA(AbsTaskMultiLabelTextClassification):
     @property
     def description(self):
         return {
-            "name": "IndoHoASA",
+            "name": "IndoHoASAMultiLabelTextClassification",
             "hf_hub_name": "kornwtp/indonlu-hoasa",
             "description": "Multilabel text classification from Indonesian hotel reviews.",
             "reference": "https://huggingface.co/datasets/indonlp/indonlu",

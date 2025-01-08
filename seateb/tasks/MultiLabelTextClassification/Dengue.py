@@ -5,7 +5,7 @@ class Dengue(AbsTaskMultiLabelTextClassification):
     @property
     def description(self):
         return {
-            "name": "Dengue",
+            "name": "DengueMultiLabelTextClassification",
             "hf_hub_name": "kornwtp/dengue-filipino",
             "description": "Multilabel text classification from Dengue dataset in Filipino.",
             "reference": "https://huggingface.co/datasets/jcblaise/dengue_filipino",

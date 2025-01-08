@@ -5,10 +5,10 @@ class GeneratedReviewsENTH(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "GeneratedReviewsENTH",
+            "name": "GeneratedReviewsENTHTextClassification",
             "hf_hub_name": "kornwtp/generated-reviews-enth",
             "description": "English-to-Thai translation quality estimation (binary label)",
-            "reference": "https://huggingface.co/datasets/Wongnai/wongnai_reviews",
+            "reference": "https://huggingface.co/datasets/airesearch/generated_reviews_enth",
             "category": "s2s",
             "type": "TextClassification",
             "eval_splits": ["test"],

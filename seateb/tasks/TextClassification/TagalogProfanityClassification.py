@@ -5,7 +5,7 @@ class TagalogProfanityClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "TagalogProfanityClassification",
+            "name": "TagalogProfanityTextClassification",
             "hf_hub_name": "kornwtp/tl-profanity-dataset",
             "description": "Text classification from Tagalog profanity dataset.",
             "reference": "https://huggingface.co/datasets/mginoben/tagalog-profanity-dataset",
