@@ -41,7 +41,7 @@ class QARetrievalEvaluator(Evaluator):
         doc_context_encoded = model.encode(self.doc_context, convert_to_numpy=True, normalize_embeddings=True)
         logger.info(f"Encoding {len(self.questions)} questions...")
         question_encoded = model.encode(self.questions, convert_to_numpy=True, normalize_embeddings=True)
-
+        
         top_1 = 0 
         top_5 = 0 
         top_10 = 0
@@ -114,7 +114,6 @@ class MIRACLRetrievalEvaluator(Evaluator):
         logger.info(f"Encoding {len(self.questions)} questions...")
         question_encoded = model.encode(self.questions, convert_to_numpy=True, normalize_embeddings=True)
 
-
         top_1 = 0 
         top_5 = 0 
         top_10 = 0
@@ -124,6 +123,10 @@ class MIRACLRetrievalEvaluator(Evaluator):
         status_bar = enumerate(sim_score)
         for idx, sim in status_bar:
             index = np.argsort(sim)[::-1]
+            
+            if "passage" in self.doc_context[0]:
+                self.doc_context = [ex.replace("passage:", "").strip() for ex in self.doc_context]
+
             doc_sorted = [self.doc_context[i] for i in index]
             answer_idx = [doc_sorted.index(a) for a in self.answers[idx]] # cal index for each answer
             final_idx_search = min(answer_idx) # since we have multiple answers, we find the min index! 
@@ -143,7 +146,7 @@ class MIRACLRetrievalEvaluator(Evaluator):
         precision_5 = round(top_5 / len(question_encoded), 4)
         precision_10 = round(top_10 / len(question_encoded), 4)
         mrr_score = round(mrr_score / len(question_encoded), 4)
-
+        
         metrics = {
             "P@1": precision_1,
             "P@5": precision_5,
