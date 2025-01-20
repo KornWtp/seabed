@@ -123,13 +123,13 @@ class PairClassificationEvaluator(Evaluator):
         )
 
         return {
-            "accuracy": acc,
-            "accuracy_threshold": acc_threshold,
-            "f1": f1,
-            "f1_threshold": f1_threshold,
-            "precision": precision,
-            "recall": recall,
-            "ap": ap,
+            "accuracy": float(acc),
+            "accuracy_threshold": float(acc_threshold),
+            "f1": float(f1),
+            "f1_threshold": float(f1_threshold),
+            "precision": float(precision),
+            "recall": float(recall),
+            "ap": float(ap),
         }
 
     @staticmethod
