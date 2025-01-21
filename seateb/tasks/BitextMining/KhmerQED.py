@@ -5,7 +5,7 @@ class KhmerQED(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "KhmerQED",
+            "name": "KhmerQEDBitextMining",
             "hf_hub_name": "kornwtp/km-qed",
             "description": "Parallel sentences in English and their corresponding sentences in Khmer.",
             "reference": "https://opus.nlpl.eu",

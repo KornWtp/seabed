@@ -5,7 +5,7 @@ class KhmerTED2020(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "KhmerTED2020",
+            "name": "KhmerTED2020BitextMining",
             "hf_hub_name": "kornwtp/km-ted2020",
             "description": "Parallel sentences in English and their corresponding sentences in Khmer.",
             "reference": "https://opus.nlpl.eu",

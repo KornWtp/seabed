@@ -5,7 +5,7 @@ class TamilIN22Gen(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "TamilIN22Gen",
+            "name": "TamilIN22GenBitextMining",
             "hf_hub_name": "kornwtp/ta-IN22-Gen",
             "description": "Parallel sentences in English and their corresponding sentences in Tamil.",
             "reference": "https://huggingface.co/datasets/mteb/IN22-Gen",

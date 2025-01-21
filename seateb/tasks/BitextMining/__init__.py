@@ -38,3 +38,9 @@ from .VietnameseNTREX import *
 from .TagalogNTREX import *
 from .KhmerNTREX import *
 from .TamilNTREX import *
+from .BurmeseTED2020 import *
+from .BurmeseQED import *
+from .BurmeseTatoeba import *
+from .BurmeseBiblenlp import *
+from .BurmeseFlores import *
+from .BurmeseNTREX import *

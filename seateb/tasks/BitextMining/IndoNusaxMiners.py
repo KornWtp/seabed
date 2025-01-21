@@ -5,7 +5,7 @@ class IndoNusaxMiners(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "IndoNusaxMiners",
+            "name": "IndoNusaxMinersBitextMining",
             "hf_hub_name": "kornwtp/id-nusax-miners",
             "description": "Parallel sentences in English and their corresponding sentences in Indonesian.",
             "reference": "https://huggingface.co/datasets/gentaiscool/bitext_nusax_miners",

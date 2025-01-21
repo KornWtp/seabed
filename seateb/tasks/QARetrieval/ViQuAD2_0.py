@@ -5,7 +5,7 @@ class ViQuAD2_0(AbsTaskQARetrieval):
     @property
     def description(self):
         return {
-            "name": "ViQuAD2_0",
+            "name": "ViQuAD2_0QARetrieval",
             "hf_hub_name": "kornwtp/UIT-ViQuAD2.0",
             "description": "Vietnamese Question Answering dataset.",
             "reference": "https://huggingface.co/datasets/taidng/UIT-ViQuAD2.0",

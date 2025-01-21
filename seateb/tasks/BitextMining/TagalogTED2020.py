@@ -5,7 +5,7 @@ class TagalogTED2020(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "TagalogTED2020",
+            "name": "TagalogTED2020BitextMining",
             "hf_hub_name": "kornwtp/tl-ted2020",
             "description": "Parallel sentences in English and their corresponding sentences in Tagalog.",
             "reference": "https://opus.nlpl.eu",

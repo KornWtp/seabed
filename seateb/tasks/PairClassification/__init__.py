@@ -6,3 +6,4 @@ from .VietnameseXNLI import *
 from .NewsPHNLI import *
 from .TamilXNLI import *
 from .IndoWReTE import *
+from .BurmeseXNLI import *

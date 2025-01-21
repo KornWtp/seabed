@@ -5,7 +5,7 @@ class VietnameseQED(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "VietnameseQED",
+            "name": "VietnameseQEDBitextMining",
             "hf_hub_name": "kornwtp/vi-qed",
             "description": "Parallel sentences in English and their corresponding sentences in Vitenamese.",
             "reference": "https://opus.nlpl.eu",

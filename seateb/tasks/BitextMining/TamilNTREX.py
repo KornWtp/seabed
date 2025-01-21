@@ -5,7 +5,7 @@ class TamilNTREX(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "TamilNTREX",
+            "name": "TamilNTREXBitextMining",
             "hf_hub_name": "kornwtp/ta-ntrex",
             "description": "Parallel sentences in English and their corresponding sentences in Tamil.",
             "reference": "https://huggingface.co/datasets/mteb/NTREX",

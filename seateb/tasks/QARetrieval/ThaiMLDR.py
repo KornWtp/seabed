@@ -5,7 +5,7 @@ class ThaiMLDR(AbsTaskQARetrieval):
     @property
     def description(self):
         return {
-            "name": "ThaiMLDR",
+            "name": "ThaiMLDRQARetrieval",
             "hf_hub_name": "kornwtp/th-mldr",
             "description": "Thai document retrieval from Multilingual Long-Document Retrieval dataset.",
             "reference": "https://huggingface.co/datasets/Shitao/MLDR",

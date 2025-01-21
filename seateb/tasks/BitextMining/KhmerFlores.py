@@ -5,7 +5,7 @@ class KhmerFlores(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "KhmerFlores",
+            "name": "KhmerFloresBitextMining",
             "hf_hub_name": "kornwtp/km-flores",
             "description": "Parallel sentences in English and their corresponding sentences in Khmer.",
             "reference": "https://huggingface.co/datasets/mteb/flores",

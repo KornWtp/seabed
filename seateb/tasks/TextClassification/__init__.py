@@ -32,4 +32,9 @@ from .TagalogShopeeReviewsClassification import *
 from .VietnameseStudentFeedbackClassification import *
 from .TagalogProfanityClassification import *
 from .TagalogFakenewsClassification import *
-
+from .MyanmarNewsClassification import *
+from .ThuraMyanmarNewsClassification import *
+from .KhineMyanmarNewsClassification import *
+from .BurmeseGKLMIPSentimentClassification import *
+from .BurmeseSEATranslationeseResampledClassification import *
+from .BurmeseSIB200Classification import *

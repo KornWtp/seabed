@@ -5,7 +5,7 @@ class IndoBiblenlp(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "IndoBiblenlp",
+            "name": "IndoBiblenlpBitextMining",
             "hf_hub_name": "kornwtp/id-biblenlp-corpus",
             "description": "Parallel sentences in English and their corresponding sentences in Indonesian.",
             "reference": "https://huggingface.co/datasets/bible-nlp/biblenlp-corpus",

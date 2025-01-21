@@ -5,7 +5,7 @@ class VietnameseFlores(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "VietnameseFlores",
+            "name": "VietnameseFloresBitextMining",
             "hf_hub_name": "kornwtp/vi-flores",
             "description": "Parallel sentences in English and their corresponding sentences in Vitenamese.",
             "reference": "https://huggingface.co/datasets/mteb/flores",

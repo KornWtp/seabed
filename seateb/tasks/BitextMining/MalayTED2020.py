@@ -5,7 +5,7 @@ class MalayTED2020(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "MalayTED2020",
+            "name": "MalayTED2020BitextMining",
             "hf_hub_name": "kornwtp/ms-ted2020",
             "description": "Parallel sentences in English and their corresponding sentences in Malay.",
             "reference": "https://opus.nlpl.eu",

@@ -5,7 +5,7 @@ class VietnameseMLQA(AbsTaskQARetrieval):
     @property
     def description(self):
         return {
-            "name": "VietnameseMLQA",
+            "name": "VietnameseMLQAQARetrieval",
             "hf_hub_name": "kornwtp/vi-mlqa",
             "description": "Question answering from MultiLingual Question Answering dataset.",
             "reference": "https://github.com/facebookresearch/MLQA",
