@@ -33,6 +33,10 @@ def get_instruction(task_type, task_name):
             "VietnameseMLQAQARetrieval": "Given a query and a passage, retrieve the most relevant passage that answer the query.",
             "ThaiMLDRQARetrieval": "Given a query and a long documents, retrieve the documents most relevant to answering the query.",
             "TamilIndicQAQARetrieval": "Given a query and a passage, retrieve the most relevant passage that answer the query.",
+            "IAppWikiQARetrieval": "Given a query and a passage, retrieve the most relevant passage that answer the query.",
+            "BurmeseMicrobiology1KQARetrieval": "Given a query and a passage, retrieve the most relevant passage that answer the query.",
+            "MyanmarAgricutlure1KQARetrieval": "Given a query and a passage, retrieve the most relevant passage that answer the query.",
+            "BurmeseAskCovidDrBotQARetrieval": "Given a query and a passage, retrieve the most relevant passage that answer the query.",
         }
         
         return instruction_dict.get(task_name)
@@ -73,6 +77,10 @@ def get_instruction(task_type, task_name):
             "MalayNewsSentimentTextClassification": "Classify the sentiment of a given news as either positive, negative, or neutral",
             "TamilNewsTextClassification": "Classify news articles into its appropriate topic",
             "TamilmurasuNewsTextClassification": "Classify news articles into its appropriate topic",
+            "BurmeseSEATranslationeseResampledClassification": "Classify text into Human-translated, Machine-translated, or Neutral",
+            "BurmeseGKLMIPSentimentClassification": "Classify text into its appropriate category",
+            "BurmeseSIB200Classification": "Classify text into its appropriate category",
+            "MyanmarNewsClassification": "Classify news articles into its appropriate topic",
         }
         
         return instruction_dict.get(task_name)
