@@ -8,3 +8,7 @@ from .VietnameseMLQA import *
 from .ViQuAD2_0 import *
 from .TamilIndicQA import *
 from .ThaiMLDR import *
+from .IAppWikiQARetrieval import *
+from .BurmeseMicrobiology1KQARetrieval import *
+from .MyanmarAgricutlure1KQARetrieval import *
+from .BurmeseAskCovidDrBotQARetrieval import *

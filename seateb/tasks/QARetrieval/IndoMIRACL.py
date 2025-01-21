@@ -5,7 +5,7 @@ class IndoMIRACL(AbsTaskQARetrieval):
     @property
     def description(self):
         return {
-            "name": "IndoMIRACL",
+            "name": "IndoMIRACLQARetrieval",
             "hf_hub_name": "kornwtp/id-miracl",
             "description": "Multilingual information retrieval across a continuum of languages.",
             "reference": "https://huggingface.co/datasets/miracl/miracl",

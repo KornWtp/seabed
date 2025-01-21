@@ -5,7 +5,7 @@ class KhmerNTREX(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "KhmerNTREX",
+            "name": "KhmerNTREXBitextMining",
             "hf_hub_name": "kornwtp/km-ntrex",
             "description": "Parallel sentences in English and their corresponding sentences in Khmer.",
             "reference": "https://huggingface.co/datasets/mteb/IN22-Conv",

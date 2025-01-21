@@ -5,7 +5,7 @@ class TamilBiblenlp(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "TamilBiblenlp",
+            "name": "TamilBiblenlpBitextMining",
             "hf_hub_name": "kornwtp/ta-biblenlp-corpus",
             "description": "Parallel sentences in English and their corresponding sentences in Tamil.",
             "reference": "https://huggingface.co/datasets/bible-nlp/biblenlp-corpus",

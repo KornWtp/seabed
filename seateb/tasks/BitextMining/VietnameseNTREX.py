@@ -5,7 +5,7 @@ class VietnameseNTREX(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "VietnameseNTREX",
+            "name": "VietnameseNTREXBitextMining",
             "hf_hub_name": "kornwtp/vi-ntrex",
             "description": "Parallel sentences in English and their corresponding sentences in Vitenamese.",
             "reference": "https://huggingface.co/datasets/mteb/NTREX",

@@ -5,7 +5,7 @@ class IndoQED(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "IndoQED",
+            "name": "IndoQEDBitextMining",
             "hf_hub_name": "kornwtp/id-qed",
             "description": "Parallel sentences in English and their corresponding sentences in Indonesian.",
             "reference": "https://opus.nlpl.eu",

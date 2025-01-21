@@ -5,7 +5,7 @@ class TamilQED(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "TamilQED",
+            "name": "TamilQEDBitextMining",
             "hf_hub_name": "kornwtp/ta-qed",
             "description": "Parallel sentences in English and their corresponding sentences in Tamil.",
             "reference": "https://opus.nlpl.eu",

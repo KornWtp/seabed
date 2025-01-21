@@ -5,7 +5,7 @@ class TagalogTatoeba(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "TagalogTatoeba",
+            "name": "TagalogTatoebaBitextMining",
             "hf_hub_name": "kornwtp/tl-tatoeba",
             "description": "Parallel sentences in English and their corresponding sentences in Tagalog.",
             "reference": "https://opus.nlpl.eu",

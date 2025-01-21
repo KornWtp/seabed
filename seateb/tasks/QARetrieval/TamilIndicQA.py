@@ -5,7 +5,7 @@ class TamilIndicQA(AbsTaskQARetrieval):
     @property
     def description(self):
         return {
-            "name": "TamilIndicQA",
+            "name": "TamilIndicQAQARetrieval",
             "hf_hub_name": "kornwtp/ta-indicqa",
             "description": "The Indic QA dataset is designed for question answering tasks, with a focus on Tamil language.",
             "reference": "https://huggingface.co/datasets/ai4bharat/IndicQA",

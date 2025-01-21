@@ -5,7 +5,7 @@ class ThaiNTREX(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "ThaiNTREX",
+            "name": "ThaiNTREXBitextMining",
             "hf_hub_name": "kornwtp/th-ntrex",
             "description": "Parallel sentences in English and their corresponding sentences in Thai.",
             "reference": "https://huggingface.co/datasets/mteb/NTREX",

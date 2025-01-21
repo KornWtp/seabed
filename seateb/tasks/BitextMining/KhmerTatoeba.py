@@ -5,7 +5,7 @@ class KhmerTatoeba(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "KhmerTatoeba",
+            "name": "KhmerTatoebaBitextMining",
             "hf_hub_name": "kornwtp/km-tatoeba",
             "description": "Parallel sentences in English and their corresponding sentences in Khmer.",
             "reference": "https://opus.nlpl.eu",

@@ -5,7 +5,7 @@ class IndoTyDiQA(AbsTaskQARetrieval):
     @property
     def description(self):
         return {
-            "name": "IndoTyDiQA",
+            "name": "IndoTyDiQAQARetrieval",
             "hf_hub_name": "kornwtp/id-tydiqa",
             "description": "Information-seeking question answering in typologically.",
             "reference": "https://huggingface.co/datasets/miracl/miracl",

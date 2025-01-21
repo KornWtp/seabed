@@ -5,7 +5,7 @@ class IndoTatoeba(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "IndoTatoeba",
+            "name": "IndoTatoebaBitextMining",
             "hf_hub_name": "kornwtp/id-tatoeba",
             "description": "Parallel sentences in English and their corresponding sentences in Indonesian.",
             "reference": "https://opus.nlpl.eu",

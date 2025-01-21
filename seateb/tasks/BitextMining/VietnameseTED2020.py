@@ -5,7 +5,7 @@ class VietnameseTED2020(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "VietnameseTED2020",
+            "name": "VietnameseTED2020BitextMining",
             "hf_hub_name": "kornwtp/vi-ted2020",
             "description": "Parallel sentences in English and their corresponding sentences in Vitenamese.",
             "reference": "https://opus.nlpl.eu",

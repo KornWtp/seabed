@@ -5,7 +5,7 @@ class TagalogFlores(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "TagalogFlores",
+            "name": "TagalogFloresBitextMining",
             "hf_hub_name": "kornwtp/tl-flores",
             "description": "Parallel sentences in English and their corresponding sentences in Tagalog.",
             "reference": "https://huggingface.co/datasets/mteb/flores",

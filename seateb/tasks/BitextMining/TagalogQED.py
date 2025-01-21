@@ -5,7 +5,7 @@ class TagalogQED(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "TagalogQED",
+            "name": "TagalogQEDBitextMining",
             "hf_hub_name": "kornwtp/tl-qed",
             "description": "Parallel sentences in English and their corresponding sentences in Tagalog.",
             "reference": "https://opus.nlpl.eu",

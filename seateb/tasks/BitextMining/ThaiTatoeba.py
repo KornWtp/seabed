@@ -5,7 +5,7 @@ class ThaiTatoeba(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "ThaiTatoeba",
+            "name": "ThaiTatoebaBitextMining",
             "hf_hub_name": "kornwtp/th-tatoeba",
             "description": "Parallel sentences in English and their corresponding sentences in Thai.",
             "reference": "https://opus.nlpl.eu",

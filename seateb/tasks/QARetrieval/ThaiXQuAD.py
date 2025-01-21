@@ -5,7 +5,7 @@ class ThaiXQuAD(AbsTaskQARetrieval):
     @property
     def description(self):
         return {
-            "name": "ThaiXQuAD",
+            "name": "ThaiXQuADQARetrieval",
             "hf_hub_name": "kornwtp/th-xquad",
             "description": "Cross-lingual question answering.",
             "reference": "https://huggingface.co/datasets/google/xquad",

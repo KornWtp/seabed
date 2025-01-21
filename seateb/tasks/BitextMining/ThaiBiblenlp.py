@@ -5,7 +5,7 @@ class ThaiBiblenlp(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "ThaiBiblenlp",
+            "name": "ThaiBiblenlpBitextMining",
             "hf_hub_name": "kornwtp/th-biblenlp-corpus",
             "description": "Parallel sentences in English and their corresponding sentences in Thai.",
             "reference": "https://huggingface.co/datasets/bible-nlp/biblenlp-corpus",

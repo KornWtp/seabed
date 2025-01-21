@@ -5,7 +5,7 @@ class VietnameseTatoeba(AbsTaskBitextMining):
     @property
     def description(self):
         return {
-            "name": "VietnameseTatoeba",
+            "name": "VietnameseTatoebaBitextMining",
             "hf_hub_name": "kornwtp/vi-tatoeba",
             "description": "Parallel sentences in English and their corresponding sentences in Vitenamese.",
             "reference": "https://opus.nlpl.eu",
