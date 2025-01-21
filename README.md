@@ -51,13 +51,13 @@ evaluation = SEATEB(task_types=['STS', 'BitextMining']) # Only select STS and Bi
 * by their categories e.g. "s2s" (sentence to sentence) or "p2p" (paragraph to paragraph)
 
 ```python
-evaluation = MTEB(task_categories=['s2s']) # Only select sentence2sentence tasks
+evaluation = SEATEB(task_categories=['s2s']) # Only select sentence2sentence tasks
 ```
 
 * by their languages
 
 ```python
-evaluation = MTEB(task_langs=["th", "id"]) # Only select tasks which support "th", "id" or "th-id"
+evaluation = SEATEB(task_langs=["th", "id"]) # Only select tasks which support "th", "id" or "th-id"
 ```
 
 ### Using a custom model
