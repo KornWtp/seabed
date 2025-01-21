@@ -38,6 +38,28 @@ seateb -m sentence-transformers/paraphrase-multilingual-mpnet-base-v2 \
        --verbosity 3
 ```
 
+### Task selection
+
+Tasks can be selected by providing the list of datasets, but also
+
+* by their task (e.g. "STS" or "BitextMining")
+
+```python
+evaluation = SEATEB(task_types=['STS', 'BitextMining']) # Only select STS and BitextMining tasks
+```
+
+* by their categories e.g. "s2s" (sentence to sentence) or "p2p" (paragraph to paragraph)
+
+```python
+evaluation = MTEB(task_categories=['s2s']) # Only select sentence2sentence tasks
+```
+
+* by their languages
+
+```python
+evaluation = MTEB(task_langs=["th", "id"]) # Only select tasks which support "th", "id" or "th-id"
+```
+
 ### Using a custom model
 
 Models should implement the following interface, implementing an `encode` function taking as inputs a list of sentences, and returning a list of embeddings (embeddings can be `np.array`, `torch.tensor`, etc.).
