@@ -22,14 +22,7 @@ class AbsTaskQARetrieval(AbsTask):
         
 
         data_split = self.dataset[split]
-        if "xquad" in self.description["hf_hub_name"] or "indicqa" in self.description["hf_hub_name"] or "ViQuAD" in self.description["hf_hub_name"]:
-            queries = data_split["question"]
-            documents = list(set(data_split["context"]))
-            doc2idx = {d: i for i, d in enumerate(documents)}
-
-            # Map index of query to set of relevant context documents
-            relevant_docs = {idx: set([doc2idx[data["context"]]]) for idx, data in enumerate(data_split)}
-        elif "tydiqa" in self.description["hf_hub_name"]:
+        if "tydiqa" in self.description["hf_hub_name"]:
             queries = data_split["question_text"]
             documents = list(set(data_split["passage_text"]))
             doc2idx = {d: i for i, d in enumerate(documents)}
@@ -69,7 +62,12 @@ class AbsTaskQARetrieval(AbsTask):
             # Map index of query to set of relevant context documents
             relevant_docs = {idx: set([documents.index(answer)]) for idx, answer in enumerate(answers)}
         else:
-            raise NotImplementedError
+            queries = data_split["question"]
+            documents = list(set(data_split["context"]))
+            doc2idx = {d: i for i, d in enumerate(documents)}
+
+            # Map index of query to set of relevant context documents
+            relevant_docs = {idx: set([doc2idx[data["context"]]]) for idx, data in enumerate(data_split)}
 
         
         if prompts is not None:
