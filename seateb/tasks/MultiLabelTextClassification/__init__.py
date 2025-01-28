@@ -5,3 +5,5 @@ from .IndoCASA import *
 from .IndoHoASA import *
 from .VLSP2018SARestaurant import *
 from .VLSP2018SAHotel import *
+from. IndoHateSpeechMultiLabelClassification import *
+from .IndoNetifierMultiLabelClassification import *
