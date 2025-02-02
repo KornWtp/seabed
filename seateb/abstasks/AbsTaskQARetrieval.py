@@ -61,6 +61,62 @@ class AbsTaskQARetrieval(AbsTask):
             
             # Map index of query to set of relevant context documents
             relevant_docs = {idx: set([documents.index(answer)]) for idx, answer in enumerate(answers)}
+        elif "qasina" in self.description["hf_hub_name"]:
+            queries, answers, documents = [], [], []
+            for item in data_split:
+                for q_as in item["question_answers"]["question"]:
+                    documents.append(item["context"])
+                    queries.append(q_as)
+                    answers.append(item["context"])
+
+            documents = list(set(documents))
+            
+            # Map index of query to set of relevant context documents
+            relevant_docs = {idx: set([documents.index(answer)]) for idx, answer in enumerate(answers)}
+        elif "idkmrc" in self.description["hf_hub_name"]:
+            queries, answers, documents = [], [], []
+            for item in data_split:
+                for q_as in item["qas"]:
+                    documents.append(item["context"])
+                    queries.append(q_as["question"])
+                    answers.append(item["context"])
+
+            documents = list(set(documents))
+            
+            # Map index of query to set of relevant context documents
+            relevant_docs = {idx: set([documents.index(answer)]) for idx, answer in enumerate(answers)}
+        elif "chatgpt-malaysian-open-qa" in self.description["hf_hub_name"]:
+            queries, answers, documents = [], [], []
+            data_split = data_split.train_test_split(test_size=0.1, shuffle=True)
+            for item in data_split["test"]:
+                for q_as in item["qa"]["qa"]:
+                    documents.append(item["paragraph"])
+                    queries.append(q_as["question"])
+                    answers.append(item["paragraph"])
+
+            documents = list(set(documents))
+            
+            # Map index of query to set of relevant context documents
+            relevant_docs = {idx: set([documents.index(answer)]) for idx, answer in enumerate(answers)}
+        elif "WangchanX-Legal-ThaiCCL-RAG" in self.description["hf_hub_name"]:
+            queries, answers, documents = [], [], []
+            for data in data_split:
+                query = data["question"]
+                positive_contexts = [d["text"] for d in data["positive_contexts"]]
+                if len(data["hard_negative_contexts"]) > 0:
+                    hard_negative_contexts = [d["text"] for d in data["hard_negative_contexts"]]
+
+                queries.append(query)
+                answers.append(positive_contexts)
+
+                documents += positive_contexts
+                if len(data["hard_negative_contexts"]) > 0:
+                    documents += hard_negative_contexts
+
+            documents = list(set(documents))
+
+            # Map index of query to set of relevant context documents
+            relevant_docs = {idx: set(documents.index(a) for a in answer) for idx, answer in enumerate(answers)}
         else:
             queries = data_split["question"]
             documents = list(set(data_split["context"]))
