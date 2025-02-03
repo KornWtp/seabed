@@ -1,17 +1,17 @@
 from ...abstasks.AbsTaskTextClassification import AbsTaskTextClassification
 
 
-class BurmeseSEATranslationeseResampledClassification(AbsTaskTextClassification):
+class MalaySEATranslationeseResampledClassification(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "BurmeseSEATranslationeseResampledClassification",
-            "hf_hub_name": "kornwtp/burmese-sea-translationese-resampled",
-            "description": "Text classifier to discriminate between translationese and natural text in Burmese.",
+            "name": "MalaySEATranslationeseResampledClassification",
+            "hf_hub_name": "kornwtp/malay-sea-translationese-resampled",
+            "description": "Text classifier to discriminate between translationese and natural text in malay.",
             "reference": "https://huggingface.co/datasets/SEACrowd/sea_translationese_resampled",
             "category": "s2s",
             "type": "TextClassification",
             "eval_splits": ["test"],
-            "eval_langs": ["my"],
+            "eval_langs": ["ms"],
             "main_score": "f1",
         }
