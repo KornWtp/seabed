@@ -6,7 +6,7 @@ class BurmeseSEATranslationeseResampledClassification(AbsTaskTextClassification)
     def description(self):
         return {
             "name": "BurmeseSEATranslationeseResampledClassification",
-            "hf_hub_name": "kornwtp/Khine-myanmar-news-classification",
+            "hf_hub_name": "kornwtp/burmese-sea-translationese-resampled",
             "description": "Text classifier to discriminate between translationese and natural text in Burmese.",
             "reference": "https://huggingface.co/datasets/SEACrowd/sea_translationese_resampled",
             "category": "s2s",

@@ -7,3 +7,8 @@ from .NewsPHNLI import *
 from .TamilXNLI import *
 from .IndoWReTE import *
 from .BurmeseXNLI import *
+from .IndoSQuADNLIPairClassification import *
+from .IndoTyDIQANLIPairClassification import *
+from .IndoIDKMRCNLIPairClassification import *
+from .IndoMultilingualNLI26lang2mil7PairClassification import *
+from .VietnameseMultilingualNLI26lang2mil7PairClassification import *

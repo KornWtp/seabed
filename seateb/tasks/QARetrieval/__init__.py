@@ -12,3 +12,11 @@ from .IAppWikiQARetrieval import *
 from .BurmeseMicrobiology1KQARetrieval import *
 from .MyanmarAgricutlure1KQARetrieval import *
 from .BurmeseAskCovidDrBotQARetrieval import *
+from .IndoACIQuADQARetrieval import *
+from .IndoQASiNaQARetrieval import *
+from .IndoIDKMRCQARetrieval import *
+from .IndoQAQARetrieval import *
+from .WangchanXLegalThaiCCLRAGQARetrieval import *
+from .WangchanXSyntheticInstructThai120kQARetrieval import *
+from .ThaiWikiQAQARetrieval import *
+from .MalayChatGPTOpenQAQARetrieval import *
