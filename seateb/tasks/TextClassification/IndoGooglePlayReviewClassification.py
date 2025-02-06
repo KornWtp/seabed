@@ -7,7 +7,7 @@ class IndoGooglePlayReviewClassification(AbsTaskTextClassification):
         return {
             "name": "IndoGooglePlayReviewClassification",
             "hf_hub_name": "kornwtp/id-google-play-review",
-            "description": "SIB-200 is the largest publicly available topic classification dataset based on Flores-200 covering 205 languages and dialects.",
+            "description": "Indonesian Google Play Review, dataset scrapped from e-commerce app on Google Play for sentiment analysis.",
             "reference": "https://github.com/jakartaresearch/hf-datasets/tree/main/google-play-review/google-play-review",
             "category": "s2s",
             "type": "TextClassification",
