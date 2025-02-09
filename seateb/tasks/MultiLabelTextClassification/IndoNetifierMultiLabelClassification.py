@@ -6,7 +6,7 @@ class IndoNetifierMultiLabelClassification(AbsTaskMultiLabelTextClassification):
     def description(self):
         return {
             "name": "IndoNetifierMultiLabelClassification",
-            "hf_hub_name": "kornwtp/id_multilabel_hatespeech",
+            "hf_hub_name": "kornwtp/id_multilabel_netifier",
             "description": "Multilabel text classification from Indonesian social media text toxicity",
             "reference": "https://github.com/ahmadizzan/netifier",
             "category": "s2s",
