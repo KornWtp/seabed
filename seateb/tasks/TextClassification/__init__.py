@@ -89,5 +89,4 @@ from .FilipinoLazadaReviewClassification import *
 from .IndonglishClassification import *
 from .IndoSpamidPairClassification import *
 from .VietnameseUITViSFDClassification import *
-from .VietnameseUITVSFCClassification import *
 from .IndoAbusiveNewsCommentClassification import *
