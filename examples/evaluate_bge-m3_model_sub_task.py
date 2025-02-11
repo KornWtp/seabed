@@ -33,14 +33,19 @@ class BGEWrapper:
 
         return embeddings
 
+TASK_LIST = [
+    "WangchanXSyntheticInstructThai120kQARetrieval",
+    "ThaiWikiQAQARetrieval",
+]
+
 
 def main():
     modelpath = "BAAI/bge-m3"
     model = BGEWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEATEB(task_types=["BitextMining"])
-    # evaluation.run(model, output_folder=f"results/{model_name}", batch_size=16, eval_splits=["test"])
-    evaluation.run(model, output_folder=f"results/{model_name}", batch_size=16)
+    for task in TASK_LIST:
+        evaluation = SEATEB(tasks=[task])
+        evaluation.run(model, output_folder=f"results/{model_name}", batch_size=8)
 
     print("--DONE--")
 
