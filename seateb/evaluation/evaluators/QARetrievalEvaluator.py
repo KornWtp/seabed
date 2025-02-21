@@ -25,7 +25,7 @@ class QARetrievalEvaluator(Evaluator):
     :param queries: A dictionary mapping query IDs to queries.
     :param corpus: A dictionary mapping document IDs to documents.
     :param relevant_docs: A dictionary mapping query IDs to a set of relevant document IDs.
-    :param corpus_chunk_size: The size of each chunk of the corpus. Defaults to 50000.
+    :param corpus_chunk_size: The size of each chunk of the corpus. Defaults to 50.
     :param mrr_at_k: A list of integers representing the values of k for MRR calculation. Defaults to [10].
     :param ndcg_at_k: A list of integers representing the values of k for NDCG calculation. Defaults to [10].
     :param accuracy_at_k: A list of integers representing the values of k for accuracy calculation. Defaults to [1, 3, 5, 10].
@@ -49,7 +49,7 @@ class QARetrievalEvaluator(Evaluator):
         queries,
         corpus,
         relevant_docs,
-        corpus_chunk_size=50000,
+        corpus_chunk_size=50,
         mrr_at_k=[10],
         ndcg_at_k=[10],
         accuracy_at_k=[1, 3, 5, 10],
