@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO)
 
 class ModelWrapper:
     def __init__(self, modelpath="sail/Sailor2-8B-Chat"):
-        word_embedding_model = models.Transformer(modelpath, max_seq_length=8192)
+        word_embedding_model = models.Transformer(modelpath, max_seq_length=2048)
         dimension = word_embedding_model.get_word_embedding_dimension()
         pooling_model = models.Pooling(dimension, pooling_mode_mean_tokens=True)
         self.model = SentenceTransformer(modules=[word_embedding_model, pooling_model])
