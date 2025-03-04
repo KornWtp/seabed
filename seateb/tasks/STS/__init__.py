@@ -23,3 +23,4 @@ from .BurmeseSTS22CrosslingualSTS import *
 from .BurmeseSTS17CrosslingualSTS import *
 from .BurmeseBiossesCrosslingualSTS import *
 from .TamilIndicCrosslingualSTS import *
+from .LaoSTSBenchmarkSTS  import *
