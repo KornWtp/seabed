@@ -20,3 +20,4 @@ from .WangchanXLegalThaiCCLRAGQARetrieval import *
 from .WangchanXSyntheticInstructThai120kQARetrieval import *
 from .ThaiWikiQAQARetrieval import *
 from .MalayChatGPTOpenQAQARetrieval import *
+from .IndoIndoNLGQARetrieval import *

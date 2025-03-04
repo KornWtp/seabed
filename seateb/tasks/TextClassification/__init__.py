@@ -90,3 +90,6 @@ from .IndonglishClassification import *
 from .IndoSpamidPairClassification import *
 from .VietnameseUITViSFDClassification import *
 from .IndoAbusiveNewsCommentClassification import *
+from .IndoCodeMixedClassification import *
+from .IndoKaroneseClassification import *
+from .LaoNewsClassification import *

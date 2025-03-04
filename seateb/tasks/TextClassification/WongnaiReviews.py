@@ -5,7 +5,7 @@ class WongnaiReviews(AbsTaskTextClassification):
     @property
     def description(self):
         return {
-            "name": "WongnaiReviewsTextClassification",
+            "name": "",
             "hf_hub_name": "kornwtp/wongnai-reviews",
             "description": "The Wongnai Review dataset contains restaurant reviews and ratings, almost entirely in Thai language.",
             "reference": "https://huggingface.co/datasets/Wongnai/wongnai_reviews",
