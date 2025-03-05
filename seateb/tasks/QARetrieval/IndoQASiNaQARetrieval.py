@@ -6,7 +6,7 @@ class IndoQASiNaQARetrieval(AbsTaskQARetrieval):
     def description(self):
         return {
             "name": "IndoQASiNaQARetrieval",
-            "hf_hub_name": "kornwtp/id-qasina",
+            "hf_hub_name": "kornwtp/id-QASiNa-retrieval",
             "description": "Question Answering Sirah Nabawiyah Dataset (QASiNa) is Extractive QA Dataset which build to perform QA task in Sirah Nabawiyah domain.",
             "reference": "https://github.com/rizquuula/QASiNa",
             "category": "s2s",

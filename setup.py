@@ -8,13 +8,13 @@ with open("README.md", mode="r", encoding="utf-8") as readme_file:
 
 setup(
     name="seateb",
-    version="0.0.3",
-    description="Southeast Asian Text Embedding Benchmark",
+    version="0.0.4",
+    description="Southeast Asian Massive Text Embedding Benchmark",
     long_description=readme,
     long_description_content_type="text/markdown",
     keywords="deep learning, text embeddings, benchmark",
     license="Apache",
-    author="SEATEB",
+    author="SEA-MTEB",
     author_email="wuttikornp.pro@gmail.com",
     url="https://github.com/KornWtp/seateb",
     project_urls={
