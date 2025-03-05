@@ -3,4 +3,4 @@ from .TextClassification import *
 from .PairClassification import *
 from .QARetrieval import *
 from .BitextMining import *
-from .MultiLabelTextClassification import *
+from .MultiLabelClassification import *
