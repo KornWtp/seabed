@@ -3,13 +3,13 @@ import logging
 from sklearn.preprocessing import MultiLabelBinarizer
 from sklearn.model_selection import train_test_split
 
-from ..evaluation.evaluators import MultiLabelTextClassificationEvaluator
+from ..evaluation.evaluators import MultiLabelClassificationEvaluator
 from .AbsTask import AbsTask
 
 
-class AbsTaskMultiLabelTextClassification(AbsTask):
+class AbsTaskMultiLabelClassification(AbsTask):
     """
-    Abstract class for MultiLabelTextClassificationTasks
+    Abstract class for MultiLabelClassificationTasks
     
     """
 
@@ -22,9 +22,9 @@ class AbsTaskMultiLabelTextClassification(AbsTask):
         
         data_split = self.dataset
 
-        if "prachathai-67k" in self.description["hf_hub_name"]:
+        if "prachathai67k" in self.description["hf_hub_name"]:
             X_train, y_train, X_test, y_test = self.generated_prachathai67k_preprocess(data_split) 
-        elif "VLSP2018-SA" in self.description["hf_hub_name"]:
+        elif "vlsp2018sa" in self.description["hf_hub_name"]:
             X_train, y_train, X_test, y_test = self.vlsp2018sa_preprocess(data_split)       
         else:
             if "test" not in data_split.keys() and "validation" not in data_split.keys():
@@ -36,7 +36,7 @@ class AbsTaskMultiLabelTextClassification(AbsTask):
             X_train = prompts(self.description['type'], self.description['name'], X_train) 
             X_test = prompts(self.description['type'], self.description['name'], X_test)  
         
-        evaluator = MultiLabelTextClassificationEvaluator(
+        evaluator = MultiLabelClassificationEvaluator(
             X_train, y_train, X_test, y_test, **kwargs
         )
         scores = evaluator.compute_metrics(model)

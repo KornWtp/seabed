@@ -12,7 +12,7 @@ from .Evaluator import Evaluator
 logger = logging.getLogger(__name__)
 
 
-class MultiLabelTextClassificationEvaluator(Evaluator):
+class MultiLabelClassificationEvaluator(Evaluator):
     def __init__(
         self, X_train, y_train, X_test, y_test, batch_size=32, **kwargs
     ):
@@ -51,9 +51,6 @@ class MultiLabelTextClassificationEvaluator(Evaluator):
         precision = precision_score(self.y_test, test_predicted, average='weighted')
         recall = recall_score(self.y_test, test_predicted, average='weighted')
         f1 = f1_score(self.y_test, test_predicted, average='weighted')
-
-        # accuracy = accuracy_score(self.y_test, test_predicted)
-        # precision, recall, f1, _ = precision_recall_fscore_support(self.y_test, test_predicted, average="weighted")
 
         return {
             "accuracy": weighted_accuracy,
