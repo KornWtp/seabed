@@ -1,12 +1,12 @@
 from ...abstasks.AbsTaskPairClassification import AbsTaskPairClassification
 
 
-class NewsPHNLI(AbsTaskPairClassification):
+class NewsPHNLI_fil_PairClassification(AbsTaskPairClassification):
     @property
     def description(self):
         return {
-            "name": "NewsPHNLIPairClassification",
-            "hf_hub_name": "kornwtp/newsph_nli",
+            "name": "NewsPHNLI_fil_PairClassification",
+            "hf_hub_name": "kornwtp/newsph-nli-fil-pairclassification",
             "description": "Sentence pairs classification in the low-resource Filipino language.",
             "reference": "https://huggingface.co/datasets/jcblaise/newsph_nli",
             "category": "s2s",
