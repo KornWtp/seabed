@@ -2,13 +2,13 @@ import logging
 
 from sklearn.model_selection import train_test_split
 
-from ..evaluation.evaluators import TextClassificationEvaluator
+from ..evaluation.evaluators import ClassificationEvaluator
 from .AbsTask import AbsTask
 
 
-class AbsTaskTextClassification(AbsTask):
+class AbsTaskClassification(AbsTask):
     """
-    Abstract class for TextClassificationTasks
+    Abstract class for ClassificationTasks
     
     """
 
@@ -35,7 +35,7 @@ class AbsTaskTextClassification(AbsTask):
             X_train = prompts(self.description['type'], self.description['name'], X_train) 
             X_test = prompts(self.description['type'], self.description['name'], X_test)
         
-        evaluator = TextClassificationEvaluator(
+        evaluator = ClassificationEvaluator(
             X_train, y_train, X_test, y_test, **kwargs
         )
         scores = evaluator.compute_metrics(model)

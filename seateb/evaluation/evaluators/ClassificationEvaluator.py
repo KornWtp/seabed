@@ -12,7 +12,7 @@ from .Evaluator import Evaluator
 logger = logging.getLogger(__name__)
 
 
-class TextClassificationEvaluator(Evaluator):
+class ClassificationEvaluator(Evaluator):
     def __init__(
         self, X_train, y_train, X_test, y_test, batch_size=32, **kwargs
     ):
