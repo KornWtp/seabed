@@ -23,7 +23,7 @@ class AbsTaskClassification(AbsTask):
 
         if "generated-reviews-enth" in self.description["hf_hub_name"]:
             X_train, y_train, X_test, y_test = self.generated_reviews_enth_preprocess(data_split)   
-        elif "tamilmurasu-news-classification" in self.description["hf_hub_name"]:
+        elif "murasu-news" in self.description["hf_hub_name"]:
             X_train, y_train, X_test, y_test = self.tamilmurasu_news_preprocess(data_split)       
         else:
             if "test" not in data_split.keys() and "validation" not in data_split.keys():
