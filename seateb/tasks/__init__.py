@@ -1,5 +1,6 @@
 from .BitextMining import *
 from .Classification import *
+from .InstructionRetrieval import *
 from .MultiLabelClassification import *
 from .PairClassification import *
 from .QARetrieval import *

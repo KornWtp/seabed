@@ -1,0 +1,4 @@
+from .WangchanThaiInstruct_tha_InstructionRetrieval import *
+from .WangchanXSyntheticInstructThai120k_tha_InstructionRetrieval import *
+from .Cendol_ind_InstructionRetrieval import *
+from .ReducedInstructionDataset_vie_InstructionRetrieval import *
