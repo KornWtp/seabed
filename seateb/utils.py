@@ -8,6 +8,9 @@ def get_instruction(task_type, task_name):
     if task_type == "PairClassification":
         return "Retrieve semantically similar text."
 
+    if task_type == "InstructionRetrieval":
+        return "Given a instruction and a context, retrieve the most relevant context that answer the question.",
+
     if task_type == "MultiLabelTextClassification":
         instruction_dict = {
             "Prachathai67k_tha_MultiLabelClassification": "Classify the given news articles into its appropriate topics",
@@ -54,6 +57,7 @@ def get_instruction(task_type, task_name):
         }
 
         return instruction_dict.get(task_name)
+
 
     if task_type == "TextClassification":
         instruction_dict = {
