@@ -43,12 +43,14 @@ from .SEATranslationeseResampled_vie_Classification import *
 from .SEATranslationeseResampled_fil_Classification import *
 from .SEATranslationeseResampled_zsm_Classification import *
 from .SEATranslationeseResampled_khm_Classification import *
+from .SEATranslationeseResampled_lao_Classification import *
 from .SIB200_mya_Classification import *
 from .SIB200_tha_Classification import *
 from .SIB200_ind_Classification import *
 from .SIB200_vie_Classification import *
 from .SIB200_fil_Classification import *
 from .SIB200_khm_Classification import *
+from .SIB200_lao_Classification import *
 from .Emoji_tha_Classification import *
 from .The40ThaiChildrenStories_tha_Classification import *
 from .TCAS61_tha_Classification import *
