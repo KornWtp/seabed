@@ -20,7 +20,7 @@ from sentence_transformers import SentenceTransformer
 model_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 
 model = SentenceTransformer(model_name)
-evaluation = SEATEB(task_types=["STS", "PairClassification"]) # STS, TextClassification, PairClassification, QARetrieval, BitextMining, MultiLabelTextClassification
+evaluation = SEATEB(task_types=["STS", "PairClassification"]) # STS, Classification, PairClassification, QARetrieval, BitextMining, MultiLabelClassification
 results = evaluation.run(model, output_folder=f"results/{model_name}", batch_size=32)
 
 
@@ -78,6 +78,6 @@ class MyModel():
         pass
 
 model = MyModel()
-evaluation = SEATEB(tasks=["ThaiSTSBenchmarkSTS"])
+evaluation = SEATEB(tasks=["STSBenchmark_tha_STS"])
 evaluation.run(model)
 ```
