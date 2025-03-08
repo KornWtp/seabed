@@ -57,7 +57,7 @@ evaluation = SEATEB(task_categories=['s2s']) # Only select sentence2sentence tas
 * by their languages
 
 ```python
-evaluation = SEATEB(task_langs=["th", "id"]) # Only select tasks which support "th" or "id" (ISO 639-1 Code)
+evaluation = SEATEB(task_langs=["tha", "ind"]) # Only select tasks which support "tha" or "ind" (ISO 639-1 Code)
 ```
 
 ### Using a custom model
