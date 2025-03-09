@@ -1,17 +1,17 @@
 from ...abstasks.AbsTaskClassification import AbsTaskClassification
 
 
-class MassiveSentiment_ind_Classification(AbsTaskClassification):
+class MultiLingualSentiment_tha_Classification(AbsTaskClassification):
     @property
     def description(self):
         return {
-            "name": "MassiveSentiment_ind_Classification",
-            "hf_hub_name": "kornwtp/massive-sentiment-ind-classification",
+            "name": "MultiLingualSentiment_tha_Classification",
+            "hf_hub_name": "kornwtp/multilingual-sentiment-tha-classification",
             "description": "Sentiment classification from multilingual sentiment classification datasets.",
             "reference": "https://huggingface.co/datasets/mteb/multilingual-sentiment-classification",
             "category": "s2s",
             "type": "Classification",
             "eval_splits": ["test"],
-            "eval_langs": ["ind"],
+            "eval_langs": ["tha"],
             "main_score": "f1",
         }
