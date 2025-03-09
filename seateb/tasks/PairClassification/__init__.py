@@ -9,7 +9,7 @@ from .MultilingualNLI26lang2mil7_vie_PairClassification import *
 from .XNLI_vie_PairClassification import *
 from .NewsPHNLI_fil_PairClassification import *
 from .PAWS_fil_PairClassification import *
-from .XNLI_mya_PairClassification import *
+from .MyXNLI_mya_PairClassification import *
 from .IndicXNLI_tam_PairClassification import *
 from .XNLITranslated_khm_PairClassification import *
 from .XNLITranslated_zsm_PairClassification import *

@@ -1,12 +1,12 @@
 from ...abstasks.AbsTaskPairClassification import AbsTaskPairClassification
 
 
-class XNLI_mya_PairClassification(AbsTaskPairClassification):
+class MyXNLI_mya_PairClassification(AbsTaskPairClassification):
     @property
     def description(self):
         return {
-            "name": "XNLI_mya_PairClassification",
-            "hf_hub_name": "kornwtp/xnli-mya-pairclassification",
+            "name": "MyXNLI_mya_PairClassification",
+            "hf_hub_name": "kornwtp/myxnli-mya-pairclassification",
             "description": "Sentence pairs classification from the Cross-lingual Natural Language Inference (XNLI) corpus.",
             "reference": "https://huggingface.co/datasets/akhtet/myanmar-xnli",
             "category": "s2s",
