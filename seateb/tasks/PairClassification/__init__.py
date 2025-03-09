@@ -10,7 +10,7 @@ from .XNLI_vie_PairClassification import *
 from .NewsPHNLI_fil_PairClassification import *
 from .PAWS_fil_PairClassification import *
 from .XNLI_mya_PairClassification import *
-from .XNLI_tam_PairClassification import *
-from .XNLI_khm_PairClassification import *
-from .XNLI_zsm_PairClassification import *
-from .XNLI_lao_PairClassification import *
+from .IndicXNLI_tam_PairClassification import *
+from .XNLITranslated_khm_PairClassification import *
+from .XNLITranslated_zsm_PairClassification import *
+from .XNLITranslated_lao_PairClassification import *
