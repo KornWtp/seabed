@@ -24,9 +24,9 @@ from .News_tam_Classification import *
 from .MurasuNews_tam_Classification import *
 from .MassiveIntent_tha_Classification import *
 from .MassiveScenario_tha_Classification import *
-from .MassiveSentiment_tha_Classification import *
-from .MassiveSentiment_ind_Classification import *
-from .MassiveSentiment_vie_Classification import *
+from .MultiLingualSentiment_tha_Classification import *
+from .MultiLingualSentiment_ind_Classification import *
+from .MultiLingualSentiment_vie_Classification import *
 from .Clickbait_ind_Classification import *
 from .ShopeeReviews_fil_Classification import *
 from .StudentFeedback_vie_Classification import *
