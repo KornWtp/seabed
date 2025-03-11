@@ -105,6 +105,23 @@ class AbsTaskQARetrieval(AbsTask):
 
             # Map index of query to set of relevant context documents
             relevant_docs = {idx: set(documents.index(a) for a in answer) for idx, answer in enumerate(answers)}
+        elif "context-search" in self.description["hf_hub_name"]:
+            queries, answers, documents = [], [], []
+            for data in data_split:
+                query = data["query"]
+                positive_passages = data["pos"]
+                negative_passages = data["neg"]
+
+                queries.append(query)
+                answers.append(positive_passages)
+
+                documents += positive_passages
+                documents += negative_passages
+
+            documents = list(set(documents))
+
+            # Map index of query to set of relevant context documents
+            relevant_docs = {idx: set(documents.index(a) for a in answer) for idx, answer in enumerate(answers)}
         else:
             queries = data_split["question"]
             documents = list(set(data_split["context"]))
