@@ -1,11 +1,11 @@
 from ...abstasks.AbsTaskPairClassification import AbsTaskPairClassification
 
 
-class XNLI_lao_PairClassification(AbsTaskPairClassification):
+class XNLITranslated_lao_PairClassification(AbsTaskPairClassification):
     @property
     def description(self):
         return {
-            "name": "XNLI_lao_PairClassification",
+            "name": "XNLITranslated_lao_PairClassification",
             "hf_hub_name": "kornwtp/xnli-lao-pairclassification",
             "description": "Sentence pairs classification from the Cross-lingual Natural Language Inference (XNLI) corpus.",
             "reference": "https://github.com/facebookresearch/XNLI",
