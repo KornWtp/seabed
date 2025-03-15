@@ -11,7 +11,6 @@ from .MLDR_tha_QARetrieval import *
 from .ThaiWikiQA_tha_QARetrieval import *
 from .TyDiQA_tha_QARetrieval import *
 from .WangchanXLegalThaiCCLRAG_tha_QARetrieval import *
-from .WangchanXSyntheticInstructThai120k_tha_QARetrieval import *
 from .XQuAD_tha_QARetrieval import *
 from .MLQA_vie_QARetrieval import *
 from .ViQuAD2_0_vie_QARetrieval import *
@@ -21,3 +20,4 @@ from .Agricutlure1K_mya_QARetrieval import *
 from .AskCovidDrBot_mya_QARetrieval import *
 from .IndicQA_tam_QARetrieval import *
 from .ChatGPTOpenQA_zsm_QARetrieval import *
+from .ContextSearch_vie_QARetrieval import *

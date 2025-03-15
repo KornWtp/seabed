@@ -54,6 +54,7 @@ def get_instruction(task_type, task_name):
             "ThaiWikiQA_tha_QARetrieval": "Given a question and a context, retrieve the most relevant context that answer the question.",
             "ChatGPTOpenQA_zsm_QARetrieval": "Given a question and a paragraph, retrieve the most relevant paragraph that answer the question.",
             "IndoNLG_ind_QARetrieval": "Given a question and a context, retrieve the most relevant context that answer the question.",
+            "ContextSearch_vie_QARetrieval": "Given a query and a context, retrieve the most relevant context that answer the question.",
         }
 
         return instruction_dict.get(task_name)
