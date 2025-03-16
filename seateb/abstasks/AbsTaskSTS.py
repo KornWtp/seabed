@@ -64,4 +64,5 @@ class AbsTaskSTS(AbsTask):
             **kwargs,
         )
         metrics = evaluator(model)
+        
         return metrics
