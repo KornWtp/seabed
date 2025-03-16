@@ -1,12 +1,12 @@
 from ...abstasks.AbsTaskInstructionRetrieval import AbsTaskInstructionRetrieval
 
 
-class Cendol_ind_InstructionRetrieval(AbsTaskInstructionRetrieval):
+class AlpacaInstruct_ind_InstructionRetrieval(AbsTaskInstructionRetrieval):
     @property
     def description(self):
         return {
-            "name": "Cendol_ind_InstructionRetrieval",
-            "hf_hub_name": "kornwtp/cendol-ind-instructionretrieval",
+            "name": "AlpacaInstruct_ind_InstructionRetrieval",
+            "hf_hub_name": "kornwtp/alpaca-instruct-ind-instructionretrieval",
             "description": "",
             "reference": "",
             "category": "s2s",

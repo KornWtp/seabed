@@ -40,5 +40,6 @@ class AbsTaskPairClassification(AbsTask):
             max_scores[metric] = max(max_scores[metric])
 
         scores["max"] = dict(max_scores)
-
+        
+       
         return scores

@@ -4,3 +4,4 @@ from .PairClassificationEvaluator import *
 from .QARetrievalEvaluator import *
 from .BitextMiningEvaluator import *
 from .MultiLabelClassificationEvaluator import *
+from .InstructionRetrievalEvaluator import *

@@ -9,7 +9,7 @@ def get_instruction(task_type, task_name):
         return "Retrieve semantically similar text."
 
     if task_type == "InstructionRetrieval":
-        return "Given a instruction and a context, retrieve the most relevant context that answer the question.",
+        return "Given a instruction and a output, retrieve the most relevant output that answer the instruction.",
 
     if task_type == "MultiLabelTextClassification":
         instruction_dict = {

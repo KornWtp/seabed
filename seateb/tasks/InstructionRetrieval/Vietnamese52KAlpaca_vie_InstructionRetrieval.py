@@ -1,12 +1,12 @@
 from ...abstasks.AbsTaskInstructionRetrieval import AbsTaskInstructionRetrieval
 
 
-class ReducedInstructionDataset_vie_InstructionRetrieval(AbsTaskInstructionRetrieval):
+class Vietnamese52KAlpaca_vie_InstructionRetrieval(AbsTaskInstructionRetrieval):
     @property
     def description(self):
         return {
-            "name": "ReducedInstructionDataset_vie_InstructionRetrieval",
-            "hf_hub_name": "kornwtp/reduced-instruction-dataset-vie-instructionretrieval",
+            "name": "Vietnamese52KAlpaca_vie_InstructionRetrieval",
+            "hf_hub_name": "kornwtp/vietnamese52k-alpaca-vie-instructionretrieval",
             "description": "",
             "reference": "",
             "category": "s2s",
