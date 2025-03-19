@@ -5,7 +5,7 @@ class ThaiWikiQA_ind_QARetrieval(AbsTaskQARetrieval):
     @property
     def description(self):
         return {
-            "name": "ThaiWikiQA_ind_QARetrieval",
+            "name": "ThaiWikiQA_tha_QARetrieval",
             "hf_hub_name": "kornwtp/thai-wikiqa-tha-qaretrieval",
             "description": "Thai Wiki QA dataset is an open domain Q&A dataset created from documents on Thai Wikipedia.",
             "reference": "https://aiforthai.in.th/",
