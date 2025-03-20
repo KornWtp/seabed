@@ -138,7 +138,7 @@ class AbsTaskQARetrieval(AbsTask):
         queries = dict(enumerate(queries))
         corpus = dict(enumerate(documents))
 
-        evaluator = QARetrievalEvaluator(queries, corpus, relevant_docs)
+        evaluator = QARetrievalEvaluator(queries, corpus, relevant_docs, **kwargs)
         scores = evaluator.compute_metrices(model)
 
         return scores
