@@ -45,7 +45,7 @@ class AbsTaskInstructionRetrieval(AbsTask):
         queries = dict(enumerate(queries))
         corpus = dict(enumerate(documents))
 
-        evaluator = InstructionRetrievalEvaluator(queries, corpus, relevant_docs)
+        evaluator = InstructionRetrievalEvaluator(queries, corpus, relevant_docs, **kwargs)
         scores = evaluator.compute_metrices(model)
         
         return scores

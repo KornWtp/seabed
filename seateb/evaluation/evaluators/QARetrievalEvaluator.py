@@ -25,7 +25,7 @@ class QARetrievalEvaluator(Evaluator):
     :param queries: A dictionary mapping query IDs to queries.
     :param corpus: A dictionary mapping document IDs to documents.
     :param relevant_docs: A dictionary mapping query IDs to a set of relevant document IDs.
-    :param corpus_chunk_size: The size of each chunk of the corpus. Defaults to 50.
+    :param corpus_chunk_size: The size of each chunk of the corpus. Defaults to 50000.
     :param mrr_at_k: A list of integers representing the values of k for MRR calculation. Defaults to [10].
     :param ndcg_at_k: A list of integers representing the values of k for NDCG calculation. Defaults to [10].
     :param accuracy_at_k: A list of integers representing the values of k for accuracy calculation. Defaults to [1, 3, 5, 10].
@@ -49,7 +49,7 @@ class QARetrievalEvaluator(Evaluator):
         queries,
         corpus,
         relevant_docs,
-        corpus_chunk_size=50,
+        corpus_chunk_size=50000,
         mrr_at_k=[10],
         ndcg_at_k=[10],
         accuracy_at_k=[1, 3, 5, 10],
@@ -66,8 +66,9 @@ class QARetrievalEvaluator(Evaluator):
         query_prompt_name=None,
         corpus_prompt=None,
         corpus_prompt_name=None,
+        **kwargs
     ):
-        super().__init__()
+        super().__init__(**kwargs)
         self.queries_ids = []
         for qid in queries:
             if qid in relevant_docs and len(relevant_docs[qid]) > 0:
@@ -103,7 +104,7 @@ class QARetrievalEvaluator(Evaluator):
         if name:
             name = "_" + name
 
-
+        
     def __call__(self, model):
         scores = self.compute_metrices(model)
     
