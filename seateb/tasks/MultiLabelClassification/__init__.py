@@ -8,3 +8,4 @@ from .VLSP2018SAHotel_vie_MultiLabelClassification import *
 from .VLSP2018SARestaurant_vie_MultiLabelClassification import *
 from .Dengue_fil_MultiLabelClassification import *
 from .GKLMIPNews_khm_MultiLabelClassification import *
+from .Prachathai67k_mya_MultiLabelClassification import *
