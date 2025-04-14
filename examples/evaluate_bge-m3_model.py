@@ -1,7 +1,7 @@
 import logging
 
 import numpy as np
-from seateb import SEATEB
+from sea_mteb import SEAMTEB
 from FlagEmbedding import BGEM3FlagModel
 
 logging.basicConfig(level=logging.INFO)
@@ -38,8 +38,13 @@ def main():
     modelpath = "BAAI/bge-m3"
     model = BGEWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEATEB(task_types=["BitextMining"])
-    # evaluation.run(model, output_folder=f"results/{model_name}", batch_size=16, eval_splits=["test"])
+    evaluation = SEAMTEB(task_types=["QARetrieval", 
+                                    "TextClassification", 
+                                    "STS", 
+                                    "PairClassification", 
+                                    "BitextMining", 
+                                    "MultiLabelTextClassification", 
+                                    "InstructionRetreival"])
     evaluation.run(model, output_folder=f"results/{model_name}", batch_size=16)
 
     print("--DONE--")

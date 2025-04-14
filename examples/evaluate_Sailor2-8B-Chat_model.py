@@ -2,8 +2,8 @@ import logging
 
 import torch
 import numpy as np
-from seateb import SEATEB
-from seateb.utils import get_instruction
+from sea_mteb import SEAMTEB
+from sea_mteb.utils import get_instruction
 from sentence_transformers import SentenceTransformer, models
 
 logging.basicConfig(level=logging.INFO)
@@ -72,21 +72,17 @@ def get_prompts(task_type, task_name, data_split):
     return updated_dataset
     
 
-TASK_LIST = [
-    "STS", 
-    "TextClassification", 
-    "PairClassification", 
-    "QARetrieval",
-    "BitextMining", 
-    "MultiLabelTextClassification",
-]
-
-
 def main():
     modelpath = "sail/Sailor2-8B-Chat"
     model = ModelWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEATEB(task_types=TASK_LIST)
+    evaluation = SEAMTEB(task_types=["QARetrieval", 
+                                    "TextClassification", 
+                                    "STS", 
+                                    "PairClassification", 
+                                    "BitextMining", 
+                                    "MultiLabelTextClassification", 
+                                    "InstructionRetreival"])
     evaluation.run(model, prompts=get_prompts, output_folder=f"results/{model_name}", batch_size=16)
 
     print("--DONE--")

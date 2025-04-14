@@ -2,8 +2,8 @@ import logging
 
 import numpy as np
 import torch
-from seateb import SEATEB
-from seateb.utils import get_instruction
+from sea_mteb import SEAMTEB
+from sea_mteb.utils import get_instruction
 from sentence_transformers import SentenceTransformer
 
 logging.basicConfig(level=logging.INFO)
@@ -44,7 +44,13 @@ def main():
     modelpath = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
     model = ModeltWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEATEB(task_types=["QARetrieval", "STS", "PairClassification", "BitextMining", "MultiLabelTextClassification"])
+    evaluation = SEAMTEB(task_types=["QARetrieval", 
+                                    "TextClassification", 
+                                    "STS", 
+                                    "PairClassification", 
+                                    "BitextMining", 
+                                    "MultiLabelTextClassification", 
+                                    "InstructionRetreival"])
     evaluation.run(model, output_folder=f"results/{model_name}", batch_size=16)
 
     print("--DONE--")
