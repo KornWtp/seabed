@@ -1,8 +1,8 @@
 import logging
 
 import numpy as np
-from seateb import SEATEB
-from seateb.utils import get_instruction
+from sea_mteb import SEAMTEB
+from sea_mteb.utils import get_instruction
 from sentence_transformers import SentenceTransformer
 
 logging.basicConfig(level=logging.INFO)
@@ -70,7 +70,13 @@ def main():
     modelpath = "intfloat/multilingual-e5-large-instruct"
     model = E5LargeInstructWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEATEB(task_types=["QARetrieval", "TextClassification", "STS", "PairClassification", "BitextMining", "MultiLabelTextClassification"])
+    evaluation = SEAMTEB(task_types=["QARetrieval", 
+                                    "TextClassification", 
+                                    "STS", 
+                                    "PairClassification", 
+                                    "BitextMining", 
+                                    "MultiLabelTextClassification", 
+                                    "InstructionRetreival"])
     evaluation.run(model, prompts=get_prompts, output_folder=f"results/{model_name}", batch_size=16)
 
     print("--DONE--")
