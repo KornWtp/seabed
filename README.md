@@ -1,10 +1,10 @@
-# Southeast Asian Text Embedding Benchmark
+# SEA-MTEB: Southeast Asian Massive Text Embedding Benchmark
 
 ## Installation
 
 ```bash
-git clone https://github.com/KornWtp/seateb.git
-cd seateb
+git clone https://github.com/KornWtp/sea_mteb.git
+cd sea_mteb
 pip install .
 ```
 
@@ -13,14 +13,14 @@ pip install .
 * Using a python script:
 
 ````python
-from seateb import SEATEB
+from sea_mteb import SEAMTEB
 from sentence_transformers import SentenceTransformer
 
 # Define the sentence-transformers model name
 model_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 
 model = SentenceTransformer(model_name)
-evaluation = SEATEB(task_types=["STS", "PairClassification"]) # STS, Classification, PairClassification, QARetrieval, BitextMining, MultiLabelClassification
+evaluation = SEAMTEB(task_types=["STS", "PairClassification"]) # STS, Classification, PairClassification, QARetrieval, BitextMining, MultiLabelClassification
 results = evaluation.run(model, output_folder=f"results/{model_name}", batch_size=32)
 
 
@@ -29,11 +29,11 @@ results = evaluation.run(model, output_folder=f"results/{model_name}", batch_siz
 * Using CLI
 
 ```bash
-seateb --available_tasks
+sea_mteb --available_tasks
 
-seateb -m sentence-transformers/paraphrase-multilingual-mpnet-base-v2 \
-       -t NewsPHNLI KhmerSTSBenchmarkSTS \
-       --output_folder seateb_output \
+sea_mteb -m sentence-transformers/paraphrase-multilingual-mpnet-base-v2 \
+       -t NewsPHNLI_fil_PairClassification \
+       --output_folder sea_mteb_output \
        --batch_size 32 \
        --verbosity 3
 ```
@@ -45,19 +45,19 @@ Tasks can be selected by providing the list of datasets, but also
 * by their task (e.g. "STS" or "BitextMining")
 
 ```python
-evaluation = SEATEB(task_types=['STS', 'BitextMining']) # Only select STS and BitextMining tasks
+evaluation = SEAMTEB(task_types=['STS', 'BitextMining']) # Only select STS and BitextMining tasks
 ```
 
 * by their categories e.g. "s2s" (sentence to sentence) or "p2p" (paragraph to paragraph)
 
 ```python
-evaluation = SEATEB(task_categories=['s2s']) # Only select sentence2sentence tasks
+evaluation = SEAMTEB(task_categories=['s2s']) # Only select sentence2sentence tasks
 ```
 
 * by their languages
 
 ```python
-evaluation = SEATEB(task_langs=["tha", "ind"]) # Only select tasks which support "tha" or "ind" (ISO 639-2 Code)
+evaluation = SEAMTEB(task_langs=["tha", "ind"]) # Only select tasks which support "tha" or "ind" (ISO 639-2 Code)
 ```
 
 ### Using a custom model
@@ -78,6 +78,6 @@ class MyModel():
         pass
 
 model = MyModel()
-evaluation = SEATEB(tasks=["STSBenchmark_tha_STS"])
+evaluation = SEAMTEB(tasks=["STSBenchmark_tha_STS"])
 evaluation.run(model)
 ```
