@@ -5,6 +5,7 @@ import pathlib
 import traceback
 from datetime import datetime
 from time import time
+import pandas as pd
 
 import datasets
 from rich.console import Console
@@ -226,9 +227,9 @@ class SEAMTEB:
 
                 # run evaluation
                 task_results = {
-                    "seateb_version": __version__, 
+                    "sea_mteb_version": __version__, 
                     "dataset_revision": task.description.get("revision", None),
-                    "seateb_dataset_name": task.description['name'],
+                    "sea_mteb_dataset_name": task.description['name'],
                 }
                 for split in task_eval_splits:
                     tick = time()
@@ -239,7 +240,7 @@ class SEAMTEB:
                     task_results[split] = results
                     if verbosity >= 1:
                         logger.info(f"Scores: {results}")
-
+                
                 # save results
                 if output_folder is not None:
                     with open(save_path, "w") as f_out:
