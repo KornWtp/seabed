@@ -14,6 +14,7 @@ pip install .
 
 ````python
 from sea_mteb import SEAMTEB
+from sea_mteb.results_to_dataframe import results_to_dataframe
 from sentence_transformers import SentenceTransformer
 
 # Define the sentence-transformers model name
@@ -22,6 +23,7 @@ model_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 model = SentenceTransformer(model_name)
 evaluation = SEAMTEB(task_types=["STS", "PairClassification"]) # STS, Classification, PairClassification, QARetrieval, BitextMining, MultiLabelClassification
 results = evaluation.run(model, output_folder=f"results/{model_name}", batch_size=32)
+results_to_dataframe(results, output_path=f"results/{model_name}")
 
 
 ````

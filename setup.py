@@ -7,8 +7,8 @@ with open("README.md", mode="r", encoding="utf-8") as readme_file:
 
 
 setup(
-    name="seateb",
-    version="0.0.4",
+    name="sea_mteb",
+    version="0.0.5",
     description="Southeast Asian Massive Text Embedding Benchmark",
     long_description=readme,
     long_description_content_type="text/markdown",
@@ -16,15 +16,15 @@ setup(
     license="Apache",
     author="SEA-MTEB",
     author_email="wuttikornp.pro@gmail.com",
-    url="https://github.com/KornWtp/seateb",
+    url="https://github.com/KornWtp/sea_mteb",
     project_urls={
         "Huggingface Organization": "https://huggingface.co/kornwtp",
-        "Source Code": "https://github.com/KornWtp/seateb",
+        "Source Code": "https://github.com/KornWtp/sea_mteb",
     },
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "seateb=seateb.cmd:main",
+            "sea_mteb=sea_mteb.cmd:main",
         ]
     },
     python_requires=">=3.8.0",
