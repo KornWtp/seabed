@@ -1,7 +1,8 @@
 import logging
 
 import numpy as np
-from sea_mteb import SEAMTEB
+from seabed import SEABED
+from seabed.results_to_dataframe import results_to_dataframe
 from FlagEmbedding import BGEM3FlagModel
 
 logging.basicConfig(level=logging.INFO)
@@ -38,14 +39,15 @@ def main():
     modelpath = "BAAI/bge-m3"
     model = BGEWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEAMTEB(task_types=["QARetrieval", 
+    evaluation = SEABED(task_types=["QARetrieval", 
                                     "TextClassification", 
                                     "STS", 
                                     "PairClassification", 
                                     "BitextMining", 
                                     "MultiLabelTextClassification", 
                                     "InstructionRetreival"])
-    evaluation.run(model, output_folder=f"results/{model_name}", batch_size=16)
+    results = evaluation.run(model, output_folder=f"results/{model_name}", batch_size=16)
+    results_to_dataframe(results, output_path=f"results/{model_name}")
 
     print("--DONE--")
 
