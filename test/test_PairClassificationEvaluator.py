@@ -1,6 +1,6 @@
 import pytest
 
-from seateb.evaluation.evaluators import PairClassificationEvaluator
+from seabed.evaluation.evaluators import PairClassificationEvaluator
 
 
 TOL = 0.0001

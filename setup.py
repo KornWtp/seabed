@@ -7,24 +7,24 @@ with open("README.md", mode="r", encoding="utf-8") as readme_file:
 
 
 setup(
-    name="sea_mteb",
-    version="0.0.5",
-    description="Southeast Asian Massive Text Embedding Benchmark",
+    name="seabed",
+    version="0.0.6",
+    description="SouthEast-Asia emBEDding benchmark",
     long_description=readme,
     long_description_content_type="text/markdown",
     keywords="deep learning, text embeddings, benchmark",
     license="Apache",
-    author="SEA-MTEB",
+    author="SEA-BED",
     author_email="wuttikornp.pro@gmail.com",
-    url="https://github.com/KornWtp/sea_mteb",
+    url="https://github.com/KornWtp/seabed",
     project_urls={
         "Huggingface Organization": "https://huggingface.co/kornwtp",
-        "Source Code": "https://github.com/KornWtp/sea_mteb",
+        "Source Code": "https://github.com/KornWtp/seabed",
     },
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "sea_mteb=sea_mteb.cmd:main",
+            "seabed=seabed.cmd:main",
         ]
     },
     python_requires=">=3.8.0",
