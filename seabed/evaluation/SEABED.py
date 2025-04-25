@@ -5,7 +5,6 @@ import pathlib
 import traceback
 from datetime import datetime
 from time import time
-import pandas as pd
 
 import datasets
 from rich.console import Console
@@ -18,7 +17,7 @@ from .. import __version__
 logger = logging.getLogger(__name__)
 
 
-class SEAMTEB:
+class SEABED:
     def __init__(
         self,
         task_types=None,
@@ -108,12 +107,12 @@ class SEAMTEB:
                 console.print("\n")
 
     @classmethod
-    def seateb_tasks(cls):
+    def seabed_tasks(cls):
         """
-        Get all tasks available in the SEATEB.
+        Get all tasks available in the SEABED.
         """
         instance = cls()
-        instance._display_tasks(instance.tasks_cls, name="SEATEB tasks")
+        instance._display_tasks(instance.tasks_cls, name="SEABED tasks")
 
     def print_selected_tasks(self):
         """ Print the selected tasks. """
@@ -227,9 +226,9 @@ class SEAMTEB:
 
                 # run evaluation
                 task_results = {
-                    "sea_mteb_version": __version__, 
+                    "seabed_version": __version__, 
                     "dataset_revision": task.description.get("revision", None),
-                    "sea_mteb_dataset_name": task.description['name'],
+                    "seabed_dataset_name": task.description['name'],
                 }
                 for split in task_eval_splits:
                     tick = time()

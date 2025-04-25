@@ -1,10 +1,10 @@
 """
 entry point for the library
 example call:
-  pip install git+https://github.com/KornWtp/sea_mteb.git
-  sea_mteb -m sentence-transformers/paraphrase-multilingual-mpnet-base-v2 \
+  pip install git+https://github.com/KornWtp/seabed.git
+  seabed -m sentence-transformers/paraphrase-multilingual-mpnet-base-v2 \
        -t KhmerSTSBenchmarkSTS \
-       --output_folder sea_mteb_output \
+       --output_folder seabed_output \
        --verbosity 3
 """
 
@@ -12,7 +12,7 @@ example call:
 import argparse
 import logging
 
-from sea_mteb import SEAMTEB
+from seabed import SEABED
 from sentence_transformers import SentenceTransformer
 
 
@@ -71,18 +71,18 @@ def main():
 
     # set logging based on verbosity level
     if args.verbosity == 0:
-        logging.getLogger("sea_mteb").setLevel(logging.CRITICAL)
+        logging.getLogger("seabed").setLevel(logging.CRITICAL)
     elif args.verbosity == 1:
-        logging.getLogger("sea_mteb").setLevel(logging.WARNING)
+        logging.getLogger("seabed").setLevel(logging.WARNING)
     elif args.verbosity == 2:
-        logging.getLogger("sea_mteb").setLevel(logging.INFO)
+        logging.getLogger("seabed").setLevel(logging.INFO)
     elif args.verbosity == 3:
-        logging.getLogger("sea_mteb").setLevel(logging.DEBUG)
+        logging.getLogger("seabed").setLevel(logging.DEBUG)
 
     logger.info("Running with parameters: %s", args)
 
     if args.available_tasks:
-        SEAMTEB.sea_mteb_tasks()
+        SEABED.seabed_tasks()
         return
     del args.available_tasks
 
@@ -93,7 +93,7 @@ def main():
         del args.__dict__[key]
 
     model = SentenceTransformer(args.model, device=args.device if "device" in args else None)
-    eval = SEAMTEB(**vars(args))
+    eval = SEABED(**vars(args))
     del args.model
     eval.run(model, **vars(args))
 

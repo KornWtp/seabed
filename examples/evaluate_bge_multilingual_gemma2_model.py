@@ -2,8 +2,9 @@ import logging
 
 import numpy as np
 import torch
-from sea_mteb import SEAMTEB
-from sea_mteb.utils import get_instruction
+from seabed import SEABED
+from seabed.results_to_dataframe import results_to_dataframe
+from seabed.utils import get_instruction
 from sentence_transformers import SentenceTransformer
 
 logging.basicConfig(level=logging.INFO)
@@ -71,14 +72,15 @@ def main():
     modelpath = "BAAI/bge-multilingual-gemma2"
     model = BGEWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEAMTEB(task_types=["QARetrieval", 
+    evaluation = SEABED(task_types=["QARetrieval", 
                                     "TextClassification", 
                                     "STS", 
                                     "PairClassification", 
                                     "BitextMining", 
                                     "MultiLabelTextClassification", 
                                     "InstructionRetreival"])
-    evaluation.run(model, prompts=get_prompts, output_folder=f"results/{model_name}", batch_size=16)
+    results = evaluation.run(model, prompts=get_prompts, output_folder=f"results/{model_name}", batch_size=16)
+    results_to_dataframe(results, output_path=f"results/{model_name}")
 
     print("--DONE--")
 
