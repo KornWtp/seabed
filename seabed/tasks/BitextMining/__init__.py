@@ -76,3 +76,12 @@ from .IndoNews_ind_BitextMining import *
 from .QED_tet_BitextMining import *
 from .Tatoeba_tet_BitextMining import *
 from .MADLAD400_tet_BitextMining import *
+from .Embassy_tha_lao_BitextMining import *
+from .XLSum_ind_BitextMining import *
+from .XLSum_tha_BitextMining import *
+from .XLSum_vie_BitextMining import *
+from .XLSum_mya_BitextMining import *
+from .Liputan6_ind_BitextMining import *
+from .ThaiGov_tha_BitextMining import *
+from .VSoLSCSum_vie_BitextMining import *
+from .ThaiSum_tha_BitextMining import *
