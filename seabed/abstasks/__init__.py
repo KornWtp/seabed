@@ -7,3 +7,4 @@ from .AbsTaskInstructionRetrieval import *
 from .AbsTaskBitextMining import *
 from .AbsTaskMultiLabelClassification import *
 from .AbsTaskReranking import *
+from .AbsTaskClustering import *

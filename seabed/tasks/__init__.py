@@ -6,5 +6,6 @@ from .PairClassification import *
 from .QARetrieval import *
 from .STS import *
 from .Reranking import *
+from .Clustering import *
 
 

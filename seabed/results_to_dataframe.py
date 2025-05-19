@@ -39,6 +39,10 @@ def results_to_dataframe(evaluation_results=None, output_path="results/"):
             metrics.append("MAP")
             results.append(evaluation_results[name][split]["map"])
 
+        if "Clustering" in name:
+            metrics.append("V-measure")
+            results.append(evaluation_results[name][split]["v_measure"])
+
     df = pd.DataFrame({"Dataset": datasets_name,
                         "Metric": metrics,
                         "Score": results})
