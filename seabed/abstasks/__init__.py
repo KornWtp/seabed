@@ -6,3 +6,4 @@ from .AbsTaskQARetrieval import *
 from .AbsTaskInstructionRetrieval import *
 from .AbsTaskBitextMining import *
 from .AbsTaskMultiLabelClassification import *
+from .AbsTaskReranking import *

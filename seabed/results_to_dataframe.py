@@ -35,6 +35,10 @@ def results_to_dataframe(evaluation_results=None, output_path="results/"):
             metrics.append("NDCG@5")
             results.append(evaluation_results[name][split]["NDCG@5"])
 
+        if "Reranking" in name:
+            metrics.append("MAP")
+            results.append(evaluation_results[name][split]["map"])
+
     df = pd.DataFrame({"Dataset": datasets_name,
                         "Metric": metrics,
                         "Score": results})
