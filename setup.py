@@ -8,7 +8,7 @@ with open("README.md", mode="r", encoding="utf-8") as readme_file:
 
 setup(
     name="seabed",
-    version="0.0.6",
+    version="0.0.7",
     description="SouthEast-Asia emBEDding benchmark",
     long_description=readme,
     long_description_content_type="text/markdown",

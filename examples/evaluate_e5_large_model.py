@@ -41,7 +41,7 @@ def get_prompts(task_type, task_name, data_split):
                                 "sentence1": f"query: {example['sentence1']}",
                                 "sentence2": f"query: {example['sentence2']}",
                             })
-    elif task_type == "TextClassification" or task_type == "MultiLabelTextClassification":
+    elif task_type == "Classification" or task_type == "Clustering" or task_type == "MultiLabelClassification":
         updated_dataset = [f"query: {example}" for example in data_split]
     elif task_type == "BitextMining":
         updated_dataset = data_split.map(
@@ -50,6 +50,10 @@ def get_prompts(task_type, task_name, data_split):
                                 "target": f"query: {example['target']}",
                             })
     elif task_type == "QARetrieval":
+        data_split[0] = [f"query: {example}" for example in data_split[0]]
+        data_split[1] = [f"passage: {example}" for example in data_split[1]]
+        updated_dataset = data_split
+    elif task_type == "Reranking":
         data_split[0] = [f"query: {example}" for example in data_split[0]]
         data_split[1] = [f"passage: {example}" for example in data_split[1]]
         updated_dataset = data_split
@@ -62,13 +66,15 @@ def main():
     modelpath = "intfloat/multilingual-e5-large"
     model = E5LargeWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEABED(task_types=["QARetrieval", 
-                                    "TextClassification", 
-                                    "STS", 
+    evaluation = SEABED(task_types=["BitextMining", 
+                                    "Classification", 
+                                    "Clustering", 
+                                    "InstructionRetreival",
+                                    "MultiLabelClassification", 
                                     "PairClassification", 
-                                    "BitextMining", 
-                                    "MultiLabelTextClassification", 
-                                    "InstructionRetreival"])
+                                    "QARetrieval",
+                                    "Reranking",
+                                    "STS"])
     results = evaluation.run(model, prompts=get_prompts, output_folder=f"results/{model_name}", batch_size=16)
     results_to_dataframe(results, output_path=f"results/{model_name}")
 

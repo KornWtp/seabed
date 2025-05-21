@@ -39,13 +39,15 @@ def main():
     modelpath = "BAAI/bge-m3"
     model = BGEWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEABED(task_types=["QARetrieval", 
-                                    "TextClassification", 
-                                    "STS", 
+    evaluation = SEABED(task_types=["BitextMining", 
+                                    "Classification", 
+                                    "Clustering", 
+                                    "InstructionRetreival",
+                                    "MultiLabelClassification", 
                                     "PairClassification", 
-                                    "BitextMining", 
-                                    "MultiLabelTextClassification", 
-                                    "InstructionRetreival"])
+                                    "QARetrieval",
+                                    "Reranking",
+                                    "STS"])
     results = evaluation.run(model, output_folder=f"results/{model_name}", batch_size=16)
     results_to_dataframe(results, output_path=f"results/{model_name}")
 

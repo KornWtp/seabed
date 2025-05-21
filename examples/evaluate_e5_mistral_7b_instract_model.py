@@ -49,9 +49,11 @@ def get_prompts(task_type, task_name, data_split):
                                 "sentence1": f"Instruct: {instruction}\nQuery: {example['sentence1']}",
                                 "sentence2": f"Instruct: {instruction}\nQuery: {example['sentence2']}",
                             })                      
-    elif task_type == "TextClassification":
+    elif task_type == "Classification":
         updated_dataset = [f"Instruct: {instruction}\nQuery: {example}" for example in data_split]
-    elif task_type == "MultiLabelTextClassification":
+    elif task_type == "Clustering":
+        updated_dataset = [f"Instruct: {instruction}\nQuery: {example}" for example in data_split]
+    elif task_type == "MultiLabelClassification":
         updated_dataset = [f"Instruct: {instruction}\nQuery: {example}" for example in data_split]
     elif task_type == "BitextMining":
         updated_dataset = data_split.map(
@@ -71,13 +73,15 @@ def main():
     modelpath = "intfloat/e5-mistral-7b-instruct"
     model = E5LargeInstructWrapper(modelpath)
     model_name = modelpath.split("/")[-1].split("_")[-1]
-    evaluation = SEABED(task_types=["QARetrieval", 
-                                    "TextClassification", 
-                                    "STS", 
+    evaluation = SEABED(task_types=["BitextMining", 
+                                    "Classification", 
+                                    "Clustering", 
+                                    "InstructionRetreival",
+                                    "MultiLabelClassification", 
                                     "PairClassification", 
-                                    "BitextMining", 
-                                    "MultiLabelTextClassification", 
-                                    "InstructionRetreival"])
+                                    "QARetrieval",
+                                    "Reranking",
+                                    "STS"])
     results = evaluation.run(model, prompts=get_prompts, output_folder=f"results/{model_name}", batch_size=16)
     results_to_dataframe(results, output_path=f"results/{model_name}")
 

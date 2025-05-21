@@ -5,7 +5,7 @@ def get_instruction(task_type, task_name):
     if task_type == "BitextMining":
         return "Retrieve parallel sentences."
 
-    if task_type == "PairClassification":
+    if task_type == "PairClassification" or task_type == "Reranking":
         return "Retrieve semantically similar text."
 
     if task_type == "InstructionRetrieval":
@@ -55,6 +55,29 @@ def get_instruction(task_type, task_name):
             "ChatGPTOpenQA_zsm_QARetrieval": "Given a question and a paragraph, retrieve the most relevant paragraph that answer the question.",
             "IndoNLG_ind_QARetrieval": "Given a question and a context, retrieve the most relevant context that answer the question.",
             "ContextSearch_vie_QARetrieval": "Given a query and a context, retrieve the most relevant context that answer the question.",
+        }
+
+        return instruction_dict.get(task_name)
+
+
+    if task_type == "Clustering":
+        instruction_dict = {
+            "SIB200_ind_Clustering": "Identify the topic or theme of the given news articles",
+            "SIB200_tha_Clustering": "Identify the topic or theme of the given news articles",
+            "SIB200_vie_Clustering": "Identify the topic or theme of the given news articles",
+            "SIB200_mya_Clustering": "Identify the topic or theme of the given news articles",
+            "SIB200_fil_Clustering": "Identify the topic or theme of the given news articles",
+            "SIB200_khm_Clustering": "Identify the topic or theme of the given news articles",
+            "SIB200_lao_Clustering": "Identify the topic or theme of the given news articles",
+            "News_tam_Clustering": "Identify the topic or theme of the given news articles",
+            "News_mya_Clustering": "Identify the topic or theme of the given news articles",
+            "MurasuNews_tam_Clustering": "Identify the topic or theme of the given news articles",
+            "News_ind_Clustering": "Identify the topic or theme of the given news articles",
+            "News_lao_Clustering": "Identify the topic or theme of the given news articles",
+            "News_khm_Clustering": "Identify the topic or theme of the given news articles",
+            "EMoTES3K_fil_Classification": "Classify text into its appropriate category",
+            "UITViON_vie_Clustering": "Identify the topic or theme of social posts based on the titles",
+            "ViOCD_vie_Clustering": "Identify the topic or theme of social posts based on the titles",
         }
 
         return instruction_dict.get(task_name)
