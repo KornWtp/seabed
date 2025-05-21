@@ -15,7 +15,12 @@ class AbsTaskClustering(AbsTask):
         if not self.data_loaded:
             self.load_data()
 
-        evaluator = ClusteringEvaluator(self.dataset[split]["texts"], self.dataset[split]["labels"], **kwargs)
+        if prompts is not None:
+            data_split = prompts(self.description['type'], self.description['name'], self.dataset[split]["texts"])
+        else:
+            data_split = self.dataset[split]["texts"]
+
+        evaluator = ClusteringEvaluator(data_split, self.dataset[split]["labels"], **kwargs)
         metrics = evaluator(model)
 
         v_mean = np.mean(metrics["v_measure"])
