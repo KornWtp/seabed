@@ -27,6 +27,9 @@ class RerankingEvaluator(Evaluator):
     def __init__(
         self,
         samples,
+        data_type,
+        data_name,
+        prompts,
         mrr_at_k: int = 10,
         name: str = "",
         similarity_fct=cos_sim,
@@ -39,6 +42,9 @@ class RerankingEvaluator(Evaluator):
         if limit:
             samples = samples.train_test_split(limit)["test"]
         self.samples = samples
+        self.data_type = data_type
+        self.data_name = data_name
+        self.prompts = prompts
         self.name = name
         self.mrr_at_k = mrr_at_k
         self.similarity_fct = similarity_fct
@@ -74,24 +80,43 @@ class RerankingEvaluator(Evaluator):
 
         logger.info("Encoding queries...")
         if isinstance(self.samples[0]["query"], str):
-            all_query_embs = model.encode(
-                [sample["query"] for sample in self.samples],
-                convert_to_tensor=True,
-                batch_size=self.batch_size,
-            )
+            if self.prompts is not None:
+                queries = [sample["query"] for sample in self.samples]
+                documents = []
+                for sample in self.samples:
+                    documents.extend(sample["positive"])
+                    documents.extend(sample["negative"])
+                queries, all_docs = self.prompts(self.data_type, self.data_name, [queries, documents]) 
+                all_query_embs = model.encode(queries, convert_to_tensor=True, batch_size=self.batch_size)
+            else:
+                all_query_embs = model.encode(
+                    [sample["query"] for sample in self.samples],
+                    convert_to_tensor=True,
+                    batch_size=self.batch_size,
+                )
         elif isinstance(self.samples[0]["query"], list):
             # In case the query is a list of strings, we get the most similar embedding to any of the queries
-            all_query_flattened = [q for sample in self.samples for q in sample["query"]]
+            if self.prompts is not None:
+                queries = [q for sample in self.samples for q in sample["query"]]
+                documents = []
+                for sample in self.samples:
+                    documents.extend(sample["positive"])
+                    documents.extend(sample["negative"])
+
+                all_query_flattened, all_docs = self.prompts(self.data_type, self.data_name, [queries, documents]) 
+            else:
+                all_query_flattened = [q for sample in self.samples for q in sample["query"]]
+                all_docs = []
+                for sample in self.samples:
+                    all_docs.extend(sample["positive"])
+                    all_docs.extend(sample["negative"])
             all_query_embs = model.encode(all_query_flattened, convert_to_tensor=True, batch_size=self.batch_size)
+            
         else:
             raise ValueError(f"Query must be a string or a list of strings but is {type(self.samples[0]['query'])}")
 
+        
         logger.info("Encoding candidates...")
-        all_docs = []
-        for sample in self.samples:
-            all_docs.extend(sample["positive"])
-            all_docs.extend(sample["negative"])
-
         all_docs_embs = model.encode(all_docs, convert_to_tensor=True, batch_size=self.batch_size)
 
         # Compute scores
