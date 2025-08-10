@@ -14,3 +14,4 @@ from .XNLITranslated_khm_PairClassification import *
 from .XNLITranslated_zsm_PairClassification import *
 from .XNLITranslated_lao_PairClassification import *
 from .BurmeseXNLI_mya_PairClassification import *
+from .PAWS_fil_PairClassification import *
