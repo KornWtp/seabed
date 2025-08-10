@@ -94,6 +94,10 @@ class RerankingEvaluator(Evaluator):
                     convert_to_tensor=True,
                     batch_size=self.batch_size,
                 )
+                all_docs = []
+                for sample in self.samples:
+                    all_docs.extend(sample["positive"])
+                    all_docs.extend(sample["negative"])
         elif isinstance(self.samples[0]["query"], list):
             # In case the query is a list of strings, we get the most similar embedding to any of the queries
             if self.prompts is not None:
