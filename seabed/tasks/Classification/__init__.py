@@ -96,3 +96,5 @@ from .CodeMixed_ind_Classification import *
 from .Karonese_ind_Classification import *
 from .News_lao_Classification import *
 from .MADLAD400_tet_Classification import *
+from .PHElectionsSA_fil_Classification import *
+from .PHElectionsTD_fil_Classification import *
