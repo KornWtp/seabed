@@ -65,12 +65,15 @@ class PairClassificationEvaluator(Evaluator):
             ]
             self.sentences1, self.sentences2, self.labels = zip(*filtered_data)
 
-        sentences = list(set(self.sentences1 + self.sentences2))
+        # Convert to lists if they are pandas Series/Columns to avoid concatenation issues
+        sentences1_list = list(self.sentences1)
+        sentences2_list = list(self.sentences2)
+        sentences = list(set(sentences1_list + sentences2_list))
         logger.info(f"Encoding {len(sentences)} sentences...")
         embeddings = np.asarray(model.encode(sentences, batch_size=self.batch_size))
         emb_dict = {sent: emb for sent, emb in zip(sentences, embeddings)}
-        embeddings1 = [emb_dict[sent] for sent in self.sentences1]
-        embeddings2 = [emb_dict[sent] for sent in self.sentences2]
+        embeddings1 = [emb_dict[sent] for sent in sentences1_list]
+        embeddings2 = [emb_dict[sent] for sent in sentences2_list]
 
         logger.info("Computing similarity distances...")
         cosine_scores = 1 - paired_cosine_distances(embeddings1, embeddings2)
