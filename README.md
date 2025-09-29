@@ -83,3 +83,54 @@ model = MyModel()
 evaluation = SEABED(tasks=["STSBenchmark_tha_STS"])
 evaluation.run(model)
 ```
+
+### Using a custom prompts
+
+Evaluation requires a get_prompts function that takes as inputs the task_type, task_name, and data_split, and returns the dataset rewritten with task-aware prompt strings. The function should format inputs into consistent templates (e.g., "task: sentence similarity | query: …") so that models receive unified instructions across different tasks. 
+
+```python
+def get_prompts(task_type, task_name, data_split):
+    if task_type == "STS":
+        updated_dataset = data_split.map(
+                            lambda example: {
+                                "sentence1": "task: sentence similarity | query: " + example['sentence1'],
+                                "sentence2": "task: sentence similarity | query: " + example['sentence2'],
+                            })
+    elif task_type == "PairClassification":
+        updated_dataset = data_split.map(
+                            lambda example: {
+                                "sentence1": "task: sentence similarity | query: " + example['sentence1'],
+                                "sentence2": "task: sentence similarity | query: " + example['sentence2'],
+                            })                      
+    elif task_type == "Classification":
+        updated_dataset = ["task: classification | query: " + example for example in data_split]
+    elif task_type == "Clustering":
+        updated_dataset = ["task: clustering | query: " + example for example in data_split]    
+    elif task_type == "MultiLabelClassification":
+        updated_dataset = ["task: classification | query: " + example for example in data_split]
+    elif task_type == "BitextMining":
+        updated_dataset = data_split.map(
+                            lambda example: {
+                                "source": "task: search result | query: " + example['source'],
+                                "target": "task: search result | query: " + example['target'],
+                            })
+    elif task_type == "QARetrieval":
+        data_split[0] = ["task: search result | query: " + example for example in data_split[0]]
+        data_split[1] = ["title: none | text: " + example for example in data_split[1]]
+        updated_dataset = data_split
+    elif task_type == "Reranking":
+        data_split[0] = ["task: search result | query: " + example for example in data_split[0]]
+        data_split[1] = ["title: none | text: " + example for example in data_split[1]]
+        updated_dataset = data_split
+    else:
+        raise NotImplementedError
+    
+    return updated_dataset
+
+```
+
+The evaluator then calls:
+
+```python
+evaluation.run(model, prompts=get_prompts)
+```
