@@ -86,41 +86,41 @@ evaluation.run(model)
 
 ### Using a custom prompts
 
-Evaluation requires a get_prompts function that takes as inputs the task_type, task_name, and data_split, and returns the dataset rewritten with task-aware prompt strings. The function should format inputs into consistent templates (e.g., "task: sentence similarity | query: …") so that models receive unified instructions across different tasks. 
+Evaluation requires a get_prompts function that takes task_type, task_name, and data_split, and rewrites the dataset with task-aware prompt strings. The "Your prompt" prefix is a placeholder that you can customize (e.g., "task: sentence similarity | query: ...", "query: ...", "document: ..."), prepended to each input depending on the task type.
 
 ```python
 def get_prompts(task_type, task_name, data_split):
     if task_type == "STS":
         updated_dataset = data_split.map(
                             lambda example: {
-                                "sentence1": "task: sentence similarity | query: " + example['sentence1'],
-                                "sentence2": "task: sentence similarity | query: " + example['sentence2'],
+                                "sentence1": "Your prompt: " + example['sentence1'],
+                                "sentence2": "Your prompt: " + example['sentence2'],
                             })
     elif task_type == "PairClassification":
         updated_dataset = data_split.map(
                             lambda example: {
-                                "sentence1": "task: sentence similarity | query: " + example['sentence1'],
-                                "sentence2": "task: sentence similarity | query: " + example['sentence2'],
+                                "sentence1": "Your prompt: " + example['sentence1'],
+                                "sentence2": "Your prompt: " + example['sentence2'],
                             })                      
     elif task_type == "Classification":
-        updated_dataset = ["task: classification | query: " + example for example in data_split]
+        updated_dataset = ["Your prompt: " + example for example in data_split]
     elif task_type == "Clustering":
-        updated_dataset = ["task: clustering | query: " + example for example in data_split]    
+        updated_dataset = ["Your prompt:: " + example for example in data_split]    
     elif task_type == "MultiLabelClassification":
-        updated_dataset = ["task: classification | query: " + example for example in data_split]
+        updated_dataset = ["Your prompt: " + example for example in data_split]
     elif task_type == "BitextMining":
         updated_dataset = data_split.map(
                             lambda example: {
-                                "source": "task: search result | query: " + example['source'],
-                                "target": "task: search result | query: " + example['target'],
+                                "source": "Your prompt: " + example['source'],
+                                "target": "Your prompt: " + example['target'],
                             })
     elif task_type == "QARetrieval":
-        data_split[0] = ["task: search result | query: " + example for example in data_split[0]]
-        data_split[1] = ["title: none | text: " + example for example in data_split[1]]
+        data_split[0] = ["Your prompt: " + example for example in data_split[0]]
+        data_split[1] = ["Your prompt: " + example for example in data_split[1]]
         updated_dataset = data_split
     elif task_type == "Reranking":
-        data_split[0] = ["task: search result | query: " + example for example in data_split[0]]
-        data_split[1] = ["title: none | text: " + example for example in data_split[1]]
+        data_split[0] = ["Your prompt: " + example for example in data_split[0]]
+        data_split[1] = ["Your prompt: " + example for example in data_split[1]]
         updated_dataset = data_split
     else:
         raise NotImplementedError
