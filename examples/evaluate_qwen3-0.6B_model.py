@@ -40,6 +40,9 @@ def get_prompts(task_type, task_name, data_split):
     elif task_type == "QARetrieval":
         data_split[0] = [f"Instruct: {instruction}\nQuery: {example}" for example in data_split[0]]
         updated_dataset = data_split
+    elif task_type == "InstructionRetrieval":
+        data_split[0] = [f"Instruct: {instruction}\nQuery: {example}" for example in data_split[0]]
+        updated_dataset = data_split
     elif task_type == "Reranking":
         data_split[0] = [f"Instruct: {instruction}\nQuery: {example}" for example in data_split[0]]
         updated_dataset = data_split

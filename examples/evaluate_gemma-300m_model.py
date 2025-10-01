@@ -39,6 +39,10 @@ def get_prompts(task_type, task_name, data_split):
         data_split[0] = ["task: search result | query: " + example for example in data_split[0]]
         data_split[1] = ["title: none | text: " + example for example in data_split[1]]
         updated_dataset = data_split
+    elif task_type == "InstructionRetrieval":
+        data_split[0] = ["task: search result | query: " + example for example in data_split[0]]
+        data_split[1] = ["title: none | text: " + example for example in data_split[1]]
+        updated_dataset = data_split
     elif task_type == "Reranking":
         data_split[0] = ["task: search result | query: " + example for example in data_split[0]]
         data_split[1] = ["title: none | text: " + example for example in data_split[1]]
