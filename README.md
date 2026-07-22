@@ -133,6 +133,13 @@ def get_prompts(task_type, task_name, data_split):
 
 ```
 
+```
+The evaluator then calls:
+
+```python
+evaluation.run(model, prompts=get_prompts)
+```
+
 
 ## Citation
 
@@ -168,9 +175,3 @@ Please cite our paper if you use SEA-BED in your work:
     ISBN = "979-8-89176-390-6",
     abstract = "Multilingual text embeddings are often assumed to encode meaning in a perspective-independent semantic space, yielding stable similarity judgments across tasks and languages. Our results show that this assumption does not hold in practice. We introduce SEA-BED, a large-scale benchmark covering 10 Southeast Asian (SEA) languages and diverse embedding tasks, designed to systematically examine how embedding performance varies across tasks, languages, and language-task combinations. Across extensive evaluations, we observe that no single model performs uniformly well across SEA languages; task difficulty differs markedly within languages, and success on one task does not reliably generalize to others. Language-task analyses further reveal highly non-uniform performance landscapes, where performance varies across different language-task combinations. These findings call for closer attention to performance measurements that provide an expansive view across languages and tasks to uncover inconsistencies in semantic representation. Based on these observations, we provide insights for future model development, including data, algorithmic, and architectural considerations."
 }
-```
-The evaluator then calls:
-
-```python
-evaluation.run(model, prompts=get_prompts)
-```
